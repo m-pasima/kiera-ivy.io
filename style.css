@@ -87,7 +87,33 @@ header h1 {
   box-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 
-/* Topics Navigation */
+/* Sections Navigation */
+#sections-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#sections-nav button {
+  background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+  border: none;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#sections-nav button.active {
+  background: #ffea00;
+  color: #1e1e2f;
+}
+
+/* Python Section */
+#python-section {
+  display: block;
+}
+
 #topics-nav {
   display: flex;
   justify-content: center;
@@ -110,7 +136,6 @@ header h1 {
   color: #1e1e2f;
 }
 
-/* Topic Header */
 #topic-header {
   text-align: center;
   margin-bottom: 20px;
@@ -126,7 +151,6 @@ header h1 {
   font-size: 1em;
 }
 
-/* Topic Explanation */
 #topic-content {
   margin-bottom: 20px;
   padding: 15px;
@@ -166,7 +190,6 @@ header h1 {
   opacity: 0.9;
 }
 
-/* Challenge Section */
 #challenge-section {
   background: #1e1e2f;
   padding: 15px;
@@ -223,7 +246,6 @@ header h1 {
   color: #27ae60;
 }
 
-/* Topic Navigation Buttons */
 #topic-navigation {
   display: flex;
   justify-content: space-between;
@@ -242,4 +264,75 @@ header h1 {
 #topic-navigation button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* Math Section */
+#math-section {
+  display: none;
+}
+
+#math-topics-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#math-topics-nav button {
+  background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+  border: none;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#math-topics-nav button.active {
+  background: #ffea00;
+  color: #1e1e2f;
+}
+
+#math-topic-content {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #1e1e2f;
+  border-radius: 5px;
+  line-height: 1.6;
+}
+
+#math-problem {
+  font-size: 1.5em;
+  color: #ffea00;
+  margin-bottom: 10px;
+}
+
+#math-answer {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 2px solid #555;
+  border-radius: 5px;
+  background: #1e1e2f;
+  color: #e0e0e0;
+}
+
+#submit-math-answer {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+#submit-math-answer:hover {
+  opacity: 0.9;
+}
+
+#math-feedback {
+  margin-top: 10px;
+  font-size: 1em;
+  color: #27ae60;
 }
