@@ -28,9 +28,7 @@ const firebaseConfig = {
         "   - A classic first program prints a message. The example below prints 'Hello, World!'.\n\n" +
         "Now, modify the code so that it prints 'I am learning Python!' exactly.",
       exampleCode: "# Example Code\nprint('Hello, World!')",
-      suggestedOutput: "Hello, World!",
       starterCode: "# Write your code below\nprint('Hello, World!')",
-      expectedOutput: "I am learning Python!",
       challengeInstruction:
         "Modify the starter code so that it prints 'I am learning Python!' exactly as shown below.\n" +
         "Expected Output:\nI am learning Python!\n\n" +
@@ -42,9 +40,7 @@ const firebaseConfig = {
         "Variables store data. Python supports data types such as strings (text), integers (whole numbers), floats (decimal numbers), and booleans (True/False).\n\n" +
         "In this lesson, you'll learn how to assign a value to a variable and print it.",
       exampleCode: "# Example Code\nnumber = 42\nprint(number)",
-      suggestedOutput: "42",
       starterCode: "# Assign a number to a variable\nnumber = 42\nprint(number)",
-      expectedOutput: "42",
       challengeInstruction:
         "Change the value assigned to the variable (for example, use your favorite number) and print it."
     },
@@ -54,9 +50,7 @@ const firebaseConfig = {
         "Strings represent text in Python. You can combine strings using the '+' operator and use methods like upper() or lower() to change their case.\n\n" +
         "In this lesson, you will combine two strings.",
       exampleCode: "# Example Code\nfirst = 'Hello'\nsecond = 'World'\nprint(first + ' ' + second)",
-      suggestedOutput: "Hello World",
       starterCode: "# Combine two strings\nfirst = 'Hello'\nsecond = 'World'\nprint(first + ' ' + second)",
-      expectedOutput: "Hello World",
       challengeInstruction:
         "Modify the code to change the message (for example, use your name) and print the result."
     },
@@ -66,9 +60,7 @@ const firebaseConfig = {
         "Input and output allow your program to interact with users. The print() function displays text, and input() gets data from the user.\n\n" +
         "In this lesson, we simulate input by predefining a variable.",
       exampleCode: "# Example Code\nname = 'Alice'\nprint('Hello, ' + name)",
-      suggestedOutput: "Hello, Alice",
       starterCode: "# Simulate user input\nname = 'Alice'\nprint('Hello, ' + name)",
-      expectedOutput: "Hello, Alice",
       challengeInstruction:
         "Change the variable to your own name and print a greeting."
     },
@@ -78,9 +70,7 @@ const firebaseConfig = {
         "Operators allow you to perform calculations and comparisons. Conditionals (if, elif, else) let your program make decisions based on conditions.\n\n" +
         "In this lesson, you'll use an if statement to check a condition.",
       exampleCode: "# Example Code\nif 10 > 5:\n    print('Yes')",
-      suggestedOutput: "Yes",
       starterCode: "# Use an if statement\nif 10 > 5:\n    print('Yes')",
-      expectedOutput: "Yes",
       challengeInstruction:
         "Write an if statement that prints 'Yes' when a number of your choice is greater than another number. Modify the starter code accordingly."
     },
@@ -90,9 +80,7 @@ const firebaseConfig = {
         "Loops allow you to repeat actions without writing code over and over. Learn how to use for loops to iterate over a sequence and while loops to repeat code as long as a condition is true.\n\n" +
         "In this lesson, you'll use a for loop to print a sequence of numbers.",
       exampleCode: "# Example Code\nfor i in range(1, 4):\n    print(i)",
-      suggestedOutput: "1\n2\n3",
       starterCode: "# For loop example\nfor i in range(1, 4):\n    print(i)",
-      expectedOutput: "1\n2\n3",
       challengeInstruction:
         "Modify the loop so that it prints numbers 1 through 5 on separate lines."
     },
@@ -102,9 +90,7 @@ const firebaseConfig = {
         "Functions are reusable blocks of code that perform a specific task. Learn how to define functions, pass parameters, and return values.\n\n" +
         "In this lesson, you'll define a function that prints a greeting.",
       exampleCode: "# Example Code\ndef greet():\n    print('Hello')\n\ngreet()",
-      suggestedOutput: "Hello",
       starterCode: "# Define a function that greets\n\ndef greet():\n    print('Hello')\n\ngreet()",
-      expectedOutput: "Hello",
       challengeInstruction:
         "Define your own function that prints a personalized greeting and call that function."
     },
@@ -115,13 +101,11 @@ const firebaseConfig = {
         "This project uses variables, arithmetic, and output to solve a real-world problem.",
       exampleCode:
         "# Example Code\nbill = 50\ntip_percentage = 20\ntip = bill * (tip_percentage / 100)\ntotal = bill + tip\nprint('Tip:', tip)\nprint('Total:', total)",
-      suggestedOutput: "Tip: 10.0\nTotal: 60.0",
       starterCode:
         "# Tip Calculator Template\nbill = 50  # Example bill amount\ntip_percentage = 20  # Tip percentage\n\n" +
         "# Calculate tip (write your code here)\n\n" +
         "# Calculate total (write your code here)\n\n" +
         "# Expected Output for a $50 bill with 20% tip:\n# Tip: 10.0\n# Total: 60.0",
-      expectedOutput: "Tip: 10.0\nTotal: 60.0",
       challengeInstruction:
         "Complete the code to calculate the tip and total bill. For a $50 bill with a 20% tip, your program should output exactly:\nTip: 10.0\nTotal: 60.0"
     }
@@ -137,7 +121,8 @@ const firebaseConfig = {
   const progressTotal = document.getElementById("progress-total");
   const topicExplanation = document.getElementById("topic-explanation");
   const exampleCode = document.getElementById("example-code");
-  const suggestedOutput = document.getElementById("suggested-output");
+  const exampleOutput = document.getElementById("example-output");
+  const runExampleBtn = document.getElementById("run-example-btn");
   const challengeInstructionsEl = document.getElementById("challenge-instructions");
   const codeEditor = document.getElementById("code-editor");
   const runCodeBtn = document.getElementById("run-code-btn");
@@ -242,7 +227,7 @@ const firebaseConfig = {
     topicTitle.innerText = topic.title;
     topicExplanation.innerText = topic.explanation;
     exampleCode.innerText = topic.exampleCode;
-    suggestedOutput.innerText = topic.suggestedOutput;
+    exampleOutput.innerText = "";
     challengeInstructionsEl.innerText = topic.challengeInstruction;
     codeEditor.value = topic.starterCode;
     codeOutput.innerText = "";
@@ -273,13 +258,26 @@ const firebaseConfig = {
     return Sk.builtinFiles["files"][x];
   }
   
+  // Run Example Code
+  runExampleBtn.addEventListener("click", () => {
+    const exampleCodeText = topics[currentTopicIndex].exampleCode;
+    exampleOutput.innerText = "";
+    Sk.configure({
+      output: (text) => { exampleOutput.innerText += text; },
+      read: builtinRead
+    });
+    Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, exampleCodeText, true))
+      .then(() => {
+        exampleOutput.innerText = exampleOutput.innerText.trim();
+      })
+      .catch((err) => {
+        exampleOutput.innerText = "Error: " + err.toString();
+      });
+  });
+  
+  // Run User Code
   runCodeBtn.addEventListener("click", () => {
     const userCode = codeEditor.value.trim();
-    const starterCode = topics[currentTopicIndex].starterCode.trim();
-    if (userCode === starterCode) {
-      challengeFeedback.innerText = "Please modify the starter code with your own solution before submitting.";
-      return;
-    }
     codeOutput.innerText = "";
     challengeFeedback.innerText = "";
     Sk.configure({
@@ -288,18 +286,13 @@ const firebaseConfig = {
     });
     Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, userCode, true))
       .then(() => {
-        const userOutput = codeOutput.innerText.trim();
-        const expected = topics[currentTopicIndex].expectedOutput.trim();
-        if (userOutput === expected || expected === "") {
-          challengeFeedback.innerText = "Great job! Your output is correct.";
-          nextTopicBtn.disabled = false;
-          launchConfetti();
-          const user = auth.currentUser;
-          if (user && currentTopicIndex < topics.length) {
-            db.collection("users").doc(user.uid).update({ stage: currentTopicIndex });
-          }
-        } else {
-          challengeFeedback.innerText = "The output didn't match the expected result. Please try again!";
+        codeOutput.innerText = codeOutput.innerText.trim();
+        challengeFeedback.innerText = "Great job! Your code ran successfully.";
+        nextTopicBtn.disabled = false;
+        launchConfetti();
+        const user = auth.currentUser;
+        if (user && currentTopicIndex < topics.length) {
+          db.collection("users").doc(user.uid).update({ stage: currentTopicIndex });
         }
       })
       .catch((err) => {

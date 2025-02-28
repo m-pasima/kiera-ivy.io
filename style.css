@@ -135,7 +135,7 @@ body {
     line-height: 1.6;
   }
   
-  #example-code, #suggested-output {
+  #example-code, #example-output {
     background: #1e1e2f;
     padding: 10px;
     border-radius: 5px;
@@ -148,8 +148,22 @@ body {
     border: 2px solid #00d2ff;
   }
   
-  #suggested-output {
+  #example-output {
     border: 2px solid #27ae60;
+  }
+  
+  #run-example-btn {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  #run-example-btn:hover {
+    opacity: 0.9;
   }
   
   /* Challenge Section */
