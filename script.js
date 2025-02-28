@@ -25,17 +25,17 @@ const firebaseConfig = {
         "Welcome to Python!\n\n" +
         "1. **The print() Function:**\n" +
         "   - The print() function outputs text to the screen.\n" +
-        "   - The text must be enclosed in quotes (either single or double).\n\n" +
+        "   - The text must be enclosed in quotes (either single ('') or double (\"\") quotes).\n\n" +
         "2. **Comments:**\n" +
         "   - Anything following a '#' is a comment and is ignored by Python. Use comments to explain your code.\n\n" +
         "3. **Your First Program:**\n" +
-        "   - A classic first program prints a message to the screen. In our example, we print 'Hello, World!'\n\n" +
-        "Make sure you modify the starter code to write your own version of the program.",
+        "   - A classic first program prints a message. The example below prints 'Hello, World!'.\n\n" +
+        "Now, modify the code so that it prints 'I am learning Python!' exactly.",
       starterCode: "# Write your code below\nprint('Hello, World!')",
-      expectedOutput: "Hello, World!",
+      expectedOutput: "I am learning Python!",
       challengeInstruction:
-        "Modify the starter code to print 'Hello, World!' exactly as shown below.\n" +
-        "Expected Output:\nHello, World!\n\n" +
+        "Modify the starter code so that it prints 'I am learning Python!' exactly as shown below.\n" +
+        "Expected Output:\nI am learning Python!\n\n" +
         "Do not add extra print statements or spaces. Then click 'Run Code'."
     },
     {
@@ -66,22 +66,22 @@ const firebaseConfig = {
       starterCode: "# Simulate user input\nname = 'Alice'\nprint('Hello, ' + name)",
       expectedOutput: "Hello, Alice",
       challengeInstruction:
-        "Change the variable value to your own name and print a greeting."
+        "Change the variable to your own name and print a greeting."
     },
     {
       title: "Operators and Conditionals",
       explanation:
-        "Operators perform calculations and comparisons. Conditionals (if, elif, else) let your program make decisions based on conditions.\n\n" +
+        "Operators allow you to perform calculations and comparisons. Conditionals (if, elif, else) let your program make decisions based on conditions.\n\n" +
         "In this lesson, you'll use an if statement to check a condition.",
       starterCode: "# Use an if statement\nif 10 > 5:\n    print('Yes')",
       expectedOutput: "Yes",
       challengeInstruction:
-        "Write an if statement that prints 'Yes' when a number you choose is greater than another number. Modify the starter code accordingly."
+        "Write an if statement that prints 'Yes' when a number of your choice is greater than another number. Modify the starter code accordingly."
     },
     {
       title: "Loops",
       explanation:
-        "Loops let you repeat actions without writing the same code multiple times. For loops are used to iterate over a sequence, and while loops repeat code as long as a condition is true.\n\n" +
+        "Loops allow you to repeat actions without writing code over and over. Learn how to use for loops to iterate over a sequence and while loops to repeat code as long as a condition is true.\n\n" +
         "In this lesson, you'll use a for loop to print a sequence of numbers.",
       starterCode: "# For loop example\nfor i in range(1, 4):\n    print(i)",
       expectedOutput: "1\n2\n3",
@@ -91,7 +91,7 @@ const firebaseConfig = {
     {
       title: "Functions",
       explanation:
-        "Functions are reusable blocks of code that perform specific tasks. They help you organize your code by allowing you to write it once and use it many times.\n\n" +
+        "Functions are reusable blocks of code that perform a specific task. Learn how to define functions, pass parameters, and return values.\n\n" +
         "In this lesson, you'll define a function that prints a greeting.",
       starterCode: "# Define a function that greets\n\ndef greet():\n    print('Hello')\n\ngreet()",
       expectedOutput: "Hello",
@@ -101,11 +101,10 @@ const firebaseConfig = {
     {
       title: "Real-World Application: Tip Calculator",
       explanation:
-        "Now, apply what you've learned by creating a simple tip calculator. The program will calculate a tip based on a bill amount and a tip percentage, then print the tip and the total bill.\n\n" +
+        "Now, apply what you've learned by creating a simple tip calculator. The program will calculate a tip based on a bill amount and tip percentage, then print the tip and the total bill.\n\n" +
         "This project uses variables, arithmetic, and output to solve a real-world problem.",
       starterCode:
-        "# Tip Calculator Template\nbill = 50  # Example bill amount\n" +
-        "tip_percentage = 20  # Tip percentage\n\n" +
+        "# Tip Calculator Template\nbill = 50  # Example bill amount\ntip_percentage = 20  # Tip percentage\n\n" +
         "# Calculate tip (write your code here)\n\n" +
         "# Calculate total (write your code here)\n\n" +
         "# Expected Output for a $50 bill with 20% tip:\n# Tip: 10.0\n# Total: 60.0",
@@ -181,6 +180,7 @@ const firebaseConfig = {
       try {
         const userCredential = await auth.createUserWithEmailAndPassword(email, password);
         authMessage.innerText = "Sign up successful! You are now logged in.";
+        // Save user's name and initial progress (topic 0) to Firestore
         await db.collection("users").doc(userCredential.user.uid).set({ stage: 0, name: name });
       } catch (err) {
         authMessage.innerText = "Error: " + err.message;
@@ -207,6 +207,7 @@ const firebaseConfig = {
   // Listen for authentication state changes
   auth.onAuthStateChanged(async (user) => {
     if (user) {
+      // Hide auth section, show main content
       authSection.style.display = "none";
       mainContent.style.display = "block";
       logoutBtn.style.display = "inline-block";
@@ -223,6 +224,7 @@ const firebaseConfig = {
       populateTopicsNav();
       loadTopic(currentTopicIndex);
     } else {
+      // Show auth section, hide main content
       authSection.style.display = "block";
       mainContent.style.display = "none";
       logoutBtn.style.display = "none";
@@ -285,7 +287,7 @@ const firebaseConfig = {
   }
   
   runCodeBtn.addEventListener("click", () => {
-    // Ensure learner has modified the starter code
+    // Check if the learner has modified the starter code
     const userCode = codeEditor.value.trim();
     const starterCode = topics[currentTopicIndex].starterCode.trim();
     if (userCode === starterCode) {
@@ -306,7 +308,7 @@ const firebaseConfig = {
             challengeFeedback.innerText = "Great job! Your output is correct.";
             nextTopicBtn.disabled = false;
             launchConfetti();
-            // Update progress in Firestore
+            // Update user's progress in Firestore
             const user = auth.currentUser;
             if (user && currentTopicIndex < topics.length) {
               db.collection("users").doc(user.uid).update({ stage: currentTopicIndex });
@@ -356,7 +358,7 @@ const firebaseConfig = {
     }
   });
   
-  // Append navigation buttons to a container if not already present
+  // Append navigation buttons to the topic-navigation section if not already present
   const topicNavContainer = document.getElementById("topic-navigation");
   if (!topicNavContainer) {
     const navContainer = document.createElement("div");
