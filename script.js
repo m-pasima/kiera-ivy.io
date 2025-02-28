@@ -1,5 +1,5 @@
 // -------------------------
-// Firebase Initialization
+// Firebase Initialization 
 // -------------------------
 const firebaseConfig = {
   apiKey: "AIzaSyDYevS22SYVg52c2xfL_1E-j_djdzhxFPk",
@@ -26,14 +26,14 @@ const pythonTopics = [
       "Python is like a magic wand that lets you tell the computer what to do. 🪄\n\n" +
       "**1. The print() Function:**\n" +
       "   - The print() function shows text on the screen like a megaphone 🎤.\n" +
-      "   - For example, `print('Hello, World!')` makes the computer display 'Hello, World!'.\n\n" +
+      "   - For example, the code below makes the computer say 'Hello, World!'.\n\n" +
       "**2. Comments:**\n" +
-      "   - Comments start with a `#` and are ignored by Python. They help you explain your code.\n\n" +
+      "   - Comments start with a '#' and are ignored by Python. They help you explain your code.\n\n" +
       "Now, look at the example code. Then, in the box below, write your own program that prints exactly:\n\n" +
       "I am learning Python!",
     exampleCode: "# Example Code\nprint('Hello, World!')",
-    starterCode: "", // Learner's code box starts empty
-    expectedOutput: "I am learning Python!",
+    starterCode: "", // Learner’s code box starts empty
+    expectedOutput: "I am learning Python!", // Fixed output for this topic
     challengeInstruction:
       "Write a Python program in the box below that prints exactly:\nI am learning Python!\n\n" +
       "Do not copy the example code. Your code must be your own. Then click 'Run My Code'."
@@ -41,17 +41,16 @@ const pythonTopics = [
   {
     title: "Variables and Data Types",
     explanation:
-      "🗃️ **Variables are like treasure boxes!**\n\n" +
-      "Variables store data so you can use it later. You can store different types of data: numbers, words, and more.\n\n" +
-      "For example, this code assigns the number 42 to a variable and prints it:\n" +
-      "  number = 42\n  print(number)\n\n" +
-      "But you can choose any number you like!",
+      "🗃️ **Variables are like treasure chests!**\n\n" +
+      "Variables store data so you can use it later. In Python, you can store numbers, words, and more.\n\n" +
+      "For example, if you write:\n  number = 42\n  print(number)\n\n" +
+      "the computer will show: 42.\n" +
+      "Now, try choosing your own number!",
     exampleCode: "# Example Code\nnumber = 42\nprint(number)",
     starterCode: "",
-    // Instead of a fixed expected output, we set it to "dynamic" to allow any numeric output.
-    expectedOutput: "dynamic",
+    expectedOutput: "dynamic",  // Dynamic: any numeric output is accepted, as long as it's different from the example.
     challengeInstruction:
-      "Create a variable with any number you choose and print it. Your program's output should be exactly that number."
+      "Create a variable with any number you choose and print it. Your program's output should be that number (it must not be 42)."
   },
   {
     title: "Working with Strings",
@@ -63,19 +62,20 @@ const pythonTopics = [
       "Now, try changing the message to something special to you!",
     exampleCode: "# Example Code\nfirst = 'Hello'\nsecond = 'World'\nprint(first + ' ' + second)",
     starterCode: "",
-    expectedOutput: "Hello World",
+    expectedOutput: "dynamic",  // Accept any output that is different from the example.
     challengeInstruction:
-      "Modify the code in the box below to print a different message (for example, your name) exactly."
+      "Modify the code in the box below to print a different message (for example, your name) exactly. Your output must not match the example's output."
   },
   {
     title: "Input and Output",
     explanation:
-      "🗣️ **Input is like having a conversation with the computer!**\n\n" +
+      "🗣️ **Input is like talking to the computer!**\n\n" +
       "The input() function asks the user for information. For example:\n  name = input('Enter your name: ')\n  print('Hello, ' + name)\n\n" +
-      "In our simulation, when your code calls input(), it will automatically return 'Alice'.",
+      "When your code calls input(), it will automatically return 'Alice'.\n" +
+      "This lets you personalize your program.",
     exampleCode: "# Example Code\nname = input('Enter your name: ')\nprint('Hello, ' + name)",
     starterCode: "",
-    expectedOutput: "Hello, Alice",
+    expectedOutput: "Hello, Alice", // Fixed for simulation
     challengeInstruction:
       "Write a Python program that asks for the user's name using input() and then prints a greeting. (In this simulation, input() returns 'Alice'.)\nExpected Output:\nHello, Alice"
   },
@@ -86,10 +86,10 @@ const pythonTopics = [
       "Operators let you do math and compare numbers. Conditionals (if, elif, else) let your program decide what to do based on conditions.\n\n" +
       "For example:\n  if 10 > 5:\n    print('Yes')\n\n" +
       "checks if 10 is greater than 5 and prints 'Yes'.\n" +
-      "Now, try writing your own if statement with numbers of your choice!",
+      "Now, try writing your own if statement using numbers of your choice.",
     exampleCode: "# Example Code\nif 10 > 5:\n    print('Yes')",
     starterCode: "",
-    expectedOutput: "Yes",
+    expectedOutput: "Yes", // Fixed output
     challengeInstruction:
       "Write an if statement that prints 'Yes' when a condition you choose is true. Your output should be exactly 'Yes'."
   },
@@ -97,41 +97,39 @@ const pythonTopics = [
     title: "Loops",
     explanation:
       "🔄 **Loops let you repeat actions without rewriting code!**\n\n" +
-      "A for loop repeats an action for every item in a range or list. \n\n" +
-      "For example:\n  for i in range(1, 4):\n    print(i)\n\n" +
+      "A for loop repeats an action for every item in a sequence. For example:\n  for i in range(1, 4):\n    print(i)\n\n" +
       "prints:\n1\n2\n3\n" +
-      "Now, try modifying the loop to print the numbers from 1 to 5.",
+      "Now, modify the loop so that it prints the numbers from 1 to 5.",
     exampleCode: "# Example Code\nfor i in range(1, 4):\n    print(i)",
     starterCode: "",
-    expectedOutput: "1\n2\n3", // Note: For the challenge, learners should adjust it to 1-5.
+    expectedOutput: "dynamic",  // Dynamic: the learner should produce a different numeric sequence (e.g., 1 through 5)
     challengeInstruction:
-      "Modify the loop in the box below so that it prints the numbers 1 through 5, each on a new line."
+      "Modify the loop in the box below so that it prints the numbers 1 through 5 on separate lines. Your output must be different from the example's output."
   },
   {
     title: "Functions",
     explanation:
       "🔧 **Functions are like little machines that do a specific job!**\n\n" +
-      "Functions let you write code once and reuse it many times. \n\n" +
-      "For example:\n  def greet():\n      print('Hello')\n  greet()\n\n" +
+      "Functions let you write code once and use it many times. For example:\n  def greet():\n      print('Hello')\n  greet()\n\n" +
       "will print 'Hello'.\n" +
       "Now, try creating your own function that prints a personalized greeting.",
     exampleCode: "# Example Code\n\ndef greet():\n    print('Hello')\n\ngreet()",
     starterCode: "",
-    expectedOutput: "Hello",
+    expectedOutput: "dynamic",  // Dynamic: any personalized greeting is accepted
     challengeInstruction:
-      "Define your own function that prints a personalized greeting (for example, 'Hi, I am [Your Name]!') and then call that function."
+      "Define your own function that prints a personalized greeting (for example, 'Hi, I am [Your Name]!') and call that function. Your output must be different from the example's."
   },
   {
     title: "Real-World Application: Tip Calculator",
     explanation:
       "💡 **Tip Calculator Project:**\n\n" +
-      "Imagine you go to a restaurant and need to calculate a tip. Your program will take a bill amount and tip percentage, then calculate the tip and total bill.\n\n" +
-      "For example, if the bill is $50 and the tip is 20%, the tip is $10 and the total is $60.\n" +
-      "This challenge uses variables and math to solve a real-life problem.",
+      "Imagine you go to a restaurant and need to calculate a tip. Your program will take a bill amount and tip percentage, then calculate and print the tip and the total bill.\n\n" +
+      "For example, if the bill is $50 and the tip is 20%, then:\n  Tip is $10 and Total is $60.\n\n" +
+      "This project uses variables and math to solve a real-life problem.",
     exampleCode:
       "# Example Code (for reference; do not copy)\n// For a $50 bill with 20% tip:\n// Tip: 10.0\n// Total: 60.0",
     starterCode: "",
-    expectedOutput: "Tip: 10.0\nTotal: 60.0",
+    expectedOutput: "Tip: 10.0\nTotal: 60.0", // Fixed output
     challengeInstruction:
       "Write a Python program that calculates the tip and total for a $50 bill with a 20% tip. Your program should output exactly:\nTip: 10.0\nTotal: 60.0"
   }
@@ -139,6 +137,7 @@ const pythonTopics = [
 
 // -------------------------
 // Math Topics Array (Basic Arithmetic)
+// (Math section remains unchanged)
 // -------------------------
 const mathTopics = [
   {
@@ -217,6 +216,22 @@ const mathFeedback = document.getElementById("math-feedback");
 
 // Set total topics count for Python
 progressTotal.innerText = pythonTopics.length;
+
+// -------------------------
+// Function to get Example Output Dynamically
+// -------------------------
+function getExampleOutput(code) {
+  return new Promise((resolve, reject) => {
+    let output = "";
+    Sk.configure({
+      output: (text) => { output += text; },
+      read: builtinRead
+    });
+    Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, code, true))
+      .then(() => resolve(output.trim()))
+      .catch(reject);
+  });
+}
 
 // -------------------------
 // Authentication: Toggle between Log In and Sign Up
@@ -332,7 +347,7 @@ function loadTopic(index) {
   const topic = pythonTopics[index];
   topicTitle.innerText = topic.title;
   topicExplanation.innerText = topic.explanation;
-  // Display example code in its own box (learners can run it)
+  // Display example code in its own box (learners may edit if desired)
   if (document.getElementById("example-code")) {
     document.getElementById("example-code").innerText = topic.exampleCode || "";
   }
@@ -340,7 +355,7 @@ function loadTopic(index) {
     document.getElementById("example-output").innerText = "";
   }
   challengeInstructionsEl.innerText = topic.challengeInstruction;
-  // Clear the user's challenge code box for original input
+  // Clear the user's challenge code box for original input (they can practice as much as they want)
   codeEditor.value = "";
   codeOutput.innerText = "";
   challengeFeedback.innerText = "";
@@ -387,8 +402,22 @@ function updateProgressDisplay() {
 // -------------------------
 function builtinRead(x) {
   if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
-      throw "File not found: '" + x + "'";
+    throw "File not found: '" + x + "'";
   return Sk.builtinFiles["files"][x];
+}
+
+// Function to get the output of example code dynamically
+function getExampleOutput(code) {
+  return new Promise((resolve, reject) => {
+    let output = "";
+    Sk.configure({
+      output: (text) => { output += text; },
+      read: builtinRead
+    });
+    Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, code, true))
+      .then(() => resolve(output.trim()))
+      .catch(reject);
+  });
 }
 
 // Run Example Code for the Example Box
@@ -427,7 +456,6 @@ runCodeBtn.addEventListener("click", () => {
   codeOutput.innerText = "";
   challengeFeedback.innerText = "";
   
-  // Configure Skulpt; if input() is used, simulate it by returning "Alice"
   let skulptConfig = {
     output: (text) => { codeOutput.innerText += text; },
     read: builtinRead
@@ -440,26 +468,29 @@ runCodeBtn.addEventListener("click", () => {
   Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, userCode, true))
     .then(() => {
       const userOutput = codeOutput.innerText.trim();
-      const expected = pythonTopics[currentTopicIndex].expectedOutput.trim();
-      // For dynamic challenges (like Variables), check if expected is "dynamic"
-      if (expected === "dynamic") {
-        if (userOutput !== "" && !isNaN(userOutput)) {
-          challengeFeedback.innerText = `Great job! You printed the number ${userOutput}.`;
-          nextTopicBtn.disabled = false;
-          launchConfetti();
-          const user = auth.currentUser;
-          if (user && currentTopicIndex < pythonTopics.length) {
-            db.collection("users").doc(user.uid).update({ stage: currentTopicIndex });
+      const topic = pythonTopics[currentTopicIndex];
+      // If the expected output is "dynamic", then we compare the user's output to the example's output
+      if (topic.expectedOutput === "dynamic") {
+        getExampleOutput(topic.exampleCode).then(exampleResult => {
+          if (userOutput !== "" && userOutput !== exampleResult) {
+            challengeFeedback.innerText = `Great job! Your output is: ${userOutput}`;
+            nextTopicBtn.disabled = false;
+            launchConfetti();
+            const user = auth.currentUser;
+            if (user && currentTopicIndex < pythonTopics.length) {
+              db.collection("users").doc(user.uid).update({ stage: currentTopicIndex });
+            }
+          } else {
+            challengeFeedback.innerText = "Your output should be different from the example output. Please try again!";
           }
-        } else {
-          challengeFeedback.innerText = "The output is not a valid number. Please try again!";
-        }
+        }).catch((err) => {
+          challengeFeedback.innerText = "Error in comparing outputs: " + err.toString();
+        });
       } else {
-        if (userOutput === expected) {
+        if (userOutput === topic.expectedOutput.trim()) {
           challengeFeedback.innerText = "Great job! Your output is correct.";
           nextTopicBtn.disabled = false;
           launchConfetti();
-          // Update progress in Firestore
           const user = auth.currentUser;
           if (user && currentTopicIndex < pythonTopics.length) {
             db.collection("users").doc(user.uid).update({ stage: currentTopicIndex });
@@ -511,7 +542,7 @@ prevTopicBtn.addEventListener("click", () => {
 });
 
 // -------------------------
-// Math Section: Timer, Problem Generator, and Submission
+// Math Section: Timer, Problem Generator, and Submission (unchanged)
 // -------------------------
 let timer;
 let timeLeft = 120; // 2 minutes
