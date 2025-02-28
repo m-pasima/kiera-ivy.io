@@ -26,17 +26,18 @@ const pythonTopics = [
       "Python is like a magic wand that lets you tell the computer what to do. 🪄\n\n" +
       "**1. The print() Function:**\n" +
       "   - The print() function shows text on the screen like a megaphone 🎤.\n" +
-      "   - For example, the code below makes the computer say 'Hello, World!'.\n\n" +
+      "   - For example, the code below makes the computer display 'Hello, World!'.\n\n" +
       "**2. Comments:**\n" +
-      "   - Comments start with a '#' and are ignored by Python. They help you explain your code.\n\n" +
+      "   - Comments start with a '#' and are ignored by Python. They help you explain what your code does.\n\n" +
       "Now, look at the example code. Then, in the box below, write your own program that prints exactly:\n\n" +
       "I am learning Python!",
     exampleCode: "# Example Code\nprint('Hello, World!')",
-    starterCode: "", // Learner’s code box starts empty
-    expectedOutput: "I am learning Python!", // Fixed output for this topic
+    starterCode: "", // Challenge box starts empty
+    expectedOutput: "I am learning Python!", // Fixed output
     challengeInstruction:
       "Write a Python program in the box below that prints exactly:\nI am learning Python!\n\n" +
       "Do not copy the example code. Your code must be your own. Then click 'Run My Code'."
+    // No dynamicValidator needed here (fixed output)
   },
   {
     title: "Variables and Data Types",
@@ -44,13 +45,18 @@ const pythonTopics = [
       "🗃️ **Variables are like treasure chests!**\n\n" +
       "Variables store data so you can use it later. In Python, you can store numbers, words, and more.\n\n" +
       "For example, if you write:\n  number = 42\n  print(number)\n\n" +
-      "the computer will show: 42.\n" +
-      "Now, try choosing your own number!",
+      "the computer will display: 42.\n" +
+      "Now, try choosing your own number (it must not be 42).",
     exampleCode: "# Example Code\nnumber = 42\nprint(number)",
     starterCode: "",
-    expectedOutput: "dynamic",  // Dynamic: any numeric output is accepted, as long as it's different from the example.
+    expectedOutput: "dynamic",  // Dynamic: any valid number is accepted as long as it's not the example's number.
     challengeInstruction:
-      "Create a variable with any number you choose and print it. Your program's output should be that number (it must not be 42)."
+      "Create a variable with any number you choose (but not 42) and print it. Your output should be exactly that number.",
+    dynamicValidator: function(output) {
+      // Accept output if it's a valid number and not "42"
+      const num = Number(output);
+      return !isNaN(num) && output.trim() !== "42";
+    }
   },
   {
     title: "Working with Strings",
@@ -62,22 +68,29 @@ const pythonTopics = [
       "Now, try changing the message to something special to you!",
     exampleCode: "# Example Code\nfirst = 'Hello'\nsecond = 'World'\nprint(first + ' ' + second)",
     starterCode: "",
-    expectedOutput: "dynamic",  // Accept any output that is different from the example.
+    expectedOutput: "dynamic", // Dynamic: any string different from the example.
     challengeInstruction:
-      "Modify the code in the box below to print a different message (for example, your name) exactly. Your output must not match the example's output."
+      "Modify the code in the box below to print a different message (for example, your name) exactly. Your output must not match 'Hello World'.",
+    dynamicValidator: function(output) {
+      return output.trim() !== "Hello World" && output.trim().length > 0;
+    }
   },
   {
     title: "Input and Output",
     explanation:
       "🗣️ **Input is like talking to the computer!**\n\n" +
       "The input() function asks the user for information. For example:\n  name = input('Enter your name: ')\n  print('Hello, ' + name)\n\n" +
-      "When your code calls input(), it will automatically return 'Alice'.\n" +
+      "In our simulation, whenever your code calls input(), it will automatically return 'Alice'.\n" +
       "This lets you personalize your program.",
     exampleCode: "# Example Code\nname = input('Enter your name: ')\nprint('Hello, ' + name)",
     starterCode: "",
-    expectedOutput: "Hello, Alice", // Fixed for simulation
+    expectedOutput: "dynamic", // Dynamic: any greeting containing "Alice" is accepted.
     challengeInstruction:
-      "Write a Python program that asks for the user's name using input() and then prints a greeting. (In this simulation, input() returns 'Alice'.)\nExpected Output:\nHello, Alice"
+      "Write a Python program that asks for the user's name using input() and then prints a greeting. (In this simulation, input() returns 'Alice'.)\nYour output should contain the word 'Alice' and a greeting like 'Hello' or 'Hi'.",
+    dynamicValidator: function(output) {
+      const lower = output.toLowerCase();
+      return lower.includes("alice") && (lower.includes("hello") || lower.includes("hi"));
+    }
   },
   {
     title: "Operators and Conditionals",
@@ -86,52 +99,61 @@ const pythonTopics = [
       "Operators let you do math and compare numbers. Conditionals (if, elif, else) let your program decide what to do based on conditions.\n\n" +
       "For example:\n  if 10 > 5:\n    print('Yes')\n\n" +
       "checks if 10 is greater than 5 and prints 'Yes'.\n" +
-      "Now, try writing your own if statement using numbers of your choice.",
+      "Now, try writing your own if statement using numbers of your choice!",
     exampleCode: "# Example Code\nif 10 > 5:\n    print('Yes')",
     starterCode: "",
     expectedOutput: "Yes", // Fixed output
     challengeInstruction:
-      "Write an if statement that prints 'Yes' when a condition you choose is true. Your output should be exactly 'Yes'."
+      "Write an if statement that prints 'Yes' when a condition you choose is met. Your output should be exactly 'Yes'."
   },
   {
     title: "Loops",
     explanation:
       "🔄 **Loops let you repeat actions without rewriting code!**\n\n" +
-      "A for loop repeats an action for every item in a sequence. For example:\n  for i in range(1, 4):\n    print(i)\n\n" +
+      "A for loop repeats an action for each item in a sequence. For example:\n  for i in range(1, 4):\n    print(i)\n\n" +
       "prints:\n1\n2\n3\n" +
-      "Now, modify the loop so that it prints the numbers from 1 to 5.",
+      "Now, try modifying the loop so that it prints numbers from 1 to 5.",
     exampleCode: "# Example Code\nfor i in range(1, 4):\n    print(i)",
     starterCode: "",
-    expectedOutput: "dynamic",  // Dynamic: the learner should produce a different numeric sequence (e.g., 1 through 5)
+    expectedOutput: "dynamic", // Dynamic: expect a sequence different from the example.
     challengeInstruction:
-      "Modify the loop in the box below so that it prints the numbers 1 through 5 on separate lines. Your output must be different from the example's output."
+      "Modify the loop in the box below so that it prints the numbers 1 through 5, each on a new line. Your output must be different from the example's output.",
+    dynamicValidator: function(output) {
+      // Accept if the printed numbers are not exactly "1\n2\n3" and there are at least 5 lines.
+      const lines = output.trim().split("\n");
+      return lines.join("\n") !== "1\n2\n3" && lines.length >= 5;
+    }
   },
   {
     title: "Functions",
     explanation:
       "🔧 **Functions are like little machines that do a specific job!**\n\n" +
-      "Functions let you write code once and use it many times. For example:\n  def greet():\n      print('Hello')\n  greet()\n\n" +
+      "Functions let you write a block of code once and use it many times. For example:\n  def greet():\n      print('Hello')\n  greet()\n\n" +
       "will print 'Hello'.\n" +
       "Now, try creating your own function that prints a personalized greeting.",
     exampleCode: "# Example Code\n\ndef greet():\n    print('Hello')\n\ngreet()",
     starterCode: "",
-    expectedOutput: "dynamic",  // Dynamic: any personalized greeting is accepted
+    expectedOutput: "dynamic", // Dynamic: any personalized greeting
     challengeInstruction:
-      "Define your own function that prints a personalized greeting (for example, 'Hi, I am [Your Name]!') and call that function. Your output must be different from the example's."
+      "Define your own function that prints a personalized greeting (for example, 'Hi, I am [Your Name]!') and then call that function. Your output must be different from the example's.",
+    dynamicValidator: function(output) {
+      return output.trim() !== "Hello" && output.trim().length > 0;
+    }
   },
   {
     title: "Real-World Application: Tip Calculator",
     explanation:
       "💡 **Tip Calculator Project:**\n\n" +
-      "Imagine you go to a restaurant and need to calculate a tip. Your program will take a bill amount and tip percentage, then calculate and print the tip and the total bill.\n\n" +
-      "For example, if the bill is $50 and the tip is 20%, then:\n  Tip is $10 and Total is $60.\n\n" +
+      "Imagine you go to a restaurant and need to calculate a tip. Your program will take a bill amount and tip percentage, then calculate the tip and total bill.\n\n" +
+      "For example, if the bill is $50 and the tip is 20%, then the tip is $10 and the total is $60.\n" +
       "This project uses variables and math to solve a real-life problem.",
     exampleCode:
-      "# Example Code (for reference; do not copy)\n// For a $50 bill with 20% tip:\n// Tip: 10.0\n// Total: 60.0",
+      "# Example Code (for reference; do not copy)\n// For a $50 bill with 20% tip, expected result:\n// Tip: 10.0\n// Total: 60.0",
     starterCode: "",
     expectedOutput: "Tip: 10.0\nTotal: 60.0", // Fixed output
     challengeInstruction:
       "Write a Python program that calculates the tip and total for a $50 bill with a 20% tip. Your program should output exactly:\nTip: 10.0\nTotal: 60.0"
+    // No dynamic validator here (fixed challenge)
   }
 ];
 
@@ -216,22 +238,6 @@ const mathFeedback = document.getElementById("math-feedback");
 
 // Set total topics count for Python
 progressTotal.innerText = pythonTopics.length;
-
-// -------------------------
-// Function to get Example Output Dynamically
-// -------------------------
-function getExampleOutput(code) {
-  return new Promise((resolve, reject) => {
-    let output = "";
-    Sk.configure({
-      output: (text) => { output += text; },
-      read: builtinRead
-    });
-    Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, code, true))
-      .then(() => resolve(output.trim()))
-      .catch(reject);
-  });
-}
 
 // -------------------------
 // Authentication: Toggle between Log In and Sign Up
@@ -347,7 +353,7 @@ function loadTopic(index) {
   const topic = pythonTopics[index];
   topicTitle.innerText = topic.title;
   topicExplanation.innerText = topic.explanation;
-  // Display example code in its own box (learners may edit if desired)
+  // Display example code in its own box (editable if desired)
   if (document.getElementById("example-code")) {
     document.getElementById("example-code").innerText = topic.exampleCode || "";
   }
@@ -355,7 +361,7 @@ function loadTopic(index) {
     document.getElementById("example-output").innerText = "";
   }
   challengeInstructionsEl.innerText = topic.challengeInstruction;
-  // Clear the user's challenge code box for original input (they can practice as much as they want)
+  // Clear the user's challenge code box (they can practice as much as they want)
   codeEditor.value = "";
   codeOutput.innerText = "";
   challengeFeedback.innerText = "";
@@ -404,20 +410,6 @@ function builtinRead(x) {
   if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
     throw "File not found: '" + x + "'";
   return Sk.builtinFiles["files"][x];
-}
-
-// Function to get the output of example code dynamically
-function getExampleOutput(code) {
-  return new Promise((resolve, reject) => {
-    let output = "";
-    Sk.configure({
-      output: (text) => { output += text; },
-      read: builtinRead
-    });
-    Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, code, true))
-      .then(() => resolve(output.trim()))
-      .catch(reject);
-  });
 }
 
 // Run Example Code for the Example Box
@@ -469,24 +461,21 @@ runCodeBtn.addEventListener("click", () => {
     .then(() => {
       const userOutput = codeOutput.innerText.trim();
       const topic = pythonTopics[currentTopicIndex];
-      // If the expected output is "dynamic", then we compare the user's output to the example's output
-      if (topic.expectedOutput === "dynamic") {
-        getExampleOutput(topic.exampleCode).then(exampleResult => {
-          if (userOutput !== "" && userOutput !== exampleResult) {
-            challengeFeedback.innerText = `Great job! Your output is: ${userOutput}`;
-            nextTopicBtn.disabled = false;
-            launchConfetti();
-            const user = auth.currentUser;
-            if (user && currentTopicIndex < pythonTopics.length) {
-              db.collection("users").doc(user.uid).update({ stage: currentTopicIndex });
-            }
-          } else {
-            challengeFeedback.innerText = "Your output should be different from the example output. Please try again!";
+      // If a dynamicValidator exists for this topic, use it
+      if (topic.expectedOutput === "dynamic" && typeof topic.dynamicValidator === "function") {
+        if (topic.dynamicValidator(userOutput)) {
+          challengeFeedback.innerText = "Great job! Your output is acceptable.";
+          nextTopicBtn.disabled = false;
+          launchConfetti();
+          const user = auth.currentUser;
+          if (user && currentTopicIndex < pythonTopics.length) {
+            db.collection("users").doc(user.uid).update({ stage: currentTopicIndex });
           }
-        }).catch((err) => {
-          challengeFeedback.innerText = "Error in comparing outputs: " + err.toString();
-        });
+        } else {
+          challengeFeedback.innerText = "Your output is not acceptable. Please try again!";
+        }
       } else {
+        // Fixed expected output
         if (userOutput === topic.expectedOutput.trim()) {
           challengeFeedback.innerText = "Great job! Your output is correct.";
           nextTopicBtn.disabled = false;
@@ -638,3 +627,4 @@ document.getElementById("math-section-btn").addEventListener("click", () => {
   populateMathTopicsNav();
   loadMathTopic(currentMathTopicIndex);
 });
+
