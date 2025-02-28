@@ -44,71 +44,7 @@ const topics = [
     challengeInstruction:
       "Change the value assigned to the variable (for example, use your favorite number) and print it."
   },
-  {
-    title: "Working with Strings",
-    explanation:
-      "Strings represent text in Python. You can combine strings using the '+' operator and use methods like upper() or lower() to change their case.\n\n" +
-      "In this lesson, you will combine two strings.",
-    exampleCode: "# Example Code\nfirst = 'Hello'\nsecond = 'World'\nprint(first + ' ' + second)",
-    starterCode: "# Combine two strings\nfirst = 'Hello'\nsecond = 'World'\nprint(first + ' ' + second)",
-    challengeInstruction:
-      "Modify the code to change the message (for example, use your name) and print the result."
-  },
-  {
-    title: "Input and Output",
-    explanation:
-      "Input and output allow your program to interact with users. The print() function displays text, and input() gets data from the user.\n\n" +
-      "In this lesson, we simulate input by predefining a variable.",
-    exampleCode: "# Example Code\nname = 'Alice'\nprint('Hello, ' + name)",
-    starterCode: "# Simulate user input\nname = 'Alice'\nprint('Hello, ' + name)",
-    challengeInstruction:
-      "Change the variable to your own name and print a greeting."
-  },
-  {
-    title: "Operators and Conditionals",
-    explanation:
-      "Operators allow you to perform calculations and comparisons. Conditionals (if, elif, else) let your program make decisions based on conditions.\n\n" +
-      "In this lesson, you'll use an if statement to check a condition.",
-    exampleCode: "# Example Code\nif 10 > 5:\n    print('Yes')",
-    starterCode: "# Use an if statement\nif 10 > 5:\n    print('Yes')",
-    challengeInstruction:
-      "Write an if statement that prints 'Yes' when a number of your choice is greater than another number. Modify the starter code accordingly."
-  },
-  {
-    title: "Loops",
-    explanation:
-      "Loops allow you to repeat actions without writing code over and over. Learn how to use for loops to iterate over a sequence and while loops to repeat code as long as a condition is true.\n\n" +
-      "In this lesson, you'll use a for loop to print a sequence of numbers.",
-    exampleCode: "# Example Code\nfor i in range(1, 4):\n    print(i)",
-    starterCode: "# For loop example\nfor i in range(1, 4):\n    print(i)",
-    challengeInstruction:
-      "Modify the loop so that it prints numbers 1 through 5 on separate lines."
-  },
-  {
-    title: "Functions",
-    explanation:
-      "Functions are reusable blocks of code that perform a specific task. Learn how to define functions, pass parameters, and return values.\n\n" +
-      "In this lesson, you'll define a function that prints a greeting.",
-    exampleCode: "# Example Code\ndef greet():\n    print('Hello')\n\ngreet()",
-    starterCode: "# Define a function that greets\n\ndef greet():\n    print('Hello')\n\ngreet()",
-    challengeInstruction:
-      "Define your own function that prints a personalized greeting and call that function."
-  },
-  {
-    title: "Real-World Application: Tip Calculator",
-    explanation:
-      "Now, apply what you've learned by creating a simple tip calculator. The program will calculate a tip based on a bill amount and tip percentage, then print the tip and the total bill.\n\n" +
-      "This project uses variables, arithmetic, and output to solve a real-world problem.",
-    exampleCode:
-      "# Example Code\nbill = 50\ntip_percentage = 20\ntip = bill * (tip_percentage / 100)\ntotal = bill + tip\nprint('Tip:', tip)\nprint('Total:', total)",
-    starterCode:
-      "# Tip Calculator Template\nbill = 50  # Example bill amount\ntip_percentage = 20  # Tip percentage\n\n" +
-      "# Calculate tip (write your code here)\n\n" +
-      "# Calculate total (write your code here)\n\n" +
-      "# Expected Output for a $50 bill with 20% tip:\n# Tip: 10.0\n# Total: 60.0",
-    challengeInstruction:
-      "Complete the code to calculate the tip and total bill. For a $50 bill with a 20% tip, your program should output exactly:\nTip: 10.0\nTotal: 60.0"
-  }
+  // Add more topics here...
 ];
 
 // Global Variables & DOM Elements
@@ -232,6 +168,7 @@ function loadTopic(index) {
   codeEditor.value = topic.starterCode;
   codeOutput.innerText = "";
   challengeFeedback.innerText = "";
+  nextTopicBtn.disabled = true; // Disable Next button by default
   updateNavigationButtons();
   updateProgressDisplay();
 }
@@ -239,7 +176,6 @@ function loadTopic(index) {
 // Update Navigation Buttons
 function updateNavigationButtons() {
   prevTopicBtn.disabled = currentTopicIndex === 0;
-  nextTopicBtn.disabled = true;
 }
 
 // Update Progress Display
@@ -278,6 +214,14 @@ runExampleBtn.addEventListener("click", () => {
 // Run User Code
 runCodeBtn.addEventListener("click", () => {
   const userCode = codeEditor.value.trim();
+  const starterCode = topics[currentTopicIndex].starterCode.trim();
+
+  // Check if the user has modified the starter code
+  if (userCode === starterCode) {
+    challengeFeedback.innerText = "Please modify the starter code with your own solution before submitting.";
+    return;
+  }
+
   codeOutput.innerText = "";
   challengeFeedback.innerText = "";
   Sk.configure({
@@ -288,7 +232,7 @@ runCodeBtn.addEventListener("click", () => {
     .then(() => {
       codeOutput.innerText = codeOutput.innerText.trim();
       challengeFeedback.innerText = "Great job! Your code ran successfully.";
-      nextTopicBtn.disabled = false;
+      nextTopicBtn.disabled = false; // Enable Next button only after successful code execution
       launchConfetti();
       const user = auth.currentUser;
       if (user && currentTopicIndex < topics.length) {
