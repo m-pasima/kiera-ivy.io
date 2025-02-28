@@ -25,92 +25,62 @@ const pythonTopics = [
       "🌟 Welcome to Python! 🌟\n\n" +
       "Python is like a magic wand that lets you tell the computer what to do. 🪄\n\n" +
       "1. **The print() Function:**\n" +
-      "   - The `print()` function outputs text to the screen like a megaphone 🎤.\n" +
-      "   - For example, `print('Hello, World!')` makes the computer say 'Hello, World!'.\n\n" +
+      "   - The print() function outputs text to the screen like a megaphone 🎤.\n" +
+      "   - For example, the code below makes the computer say 'Hello, World!'.\n\n" +
       "2. **Comments:**\n" +
-      "   - Comments start with a `#` and are ignored by Python. They are your secret notes 📝.\n\n" +
-      "Now, modify the example code so that it prints **I am learning Python!** exactly.",
+      "   - Comments start with a '#' and are ignored by Python. They help you explain your code.\n\n" +
+      "Now, look at the example code. Then, in the box below, write your own program that prints exactly:\n\n" +
+      "I am learning Python!",
     exampleCode: "# Example Code\nprint('Hello, World!')",
-    starterCode: "# Write your code below\nprint('Hello, World!')",
+    // The example code is shown separately; the challenge code box is initially empty.
+    starterCode: "", 
     expectedOutput: "I am learning Python!",
     challengeInstruction:
-      "Write a Python program that prints **I am learning Python!** exactly as shown below.\n" +
-      "Expected Output:\nI am learning Python!\n\n" +
-      "Do not add extra print statements or spaces. Then click 'Run My Code'."
+      "Write a Python program in the box below that prints exactly:\nI am learning Python!\n\n" +
+      "Do not copy the example code. Your code should be your own. Then click 'Run My Code'."
   },
   {
     title: "Variables and Data Types",
     explanation:
-      "Variables store data. Python supports data types such as strings, integers, floats, and booleans.\n\n" +
-      "In this lesson, you'll assign a value to a variable and print it.",
-    starterCode: "# Assign a number to a variable\nnumber = 42\nprint(number)",
+      "Variables are like little boxes that hold data. Python has many types: strings (text), integers (numbers), floats (decimals), and booleans (True/False).\n\n" +
+      "In this lesson, you'll create a variable and print its value.",
+    exampleCode: "# Example Code\nnumber = 42\nprint(number)",
+    starterCode: "",
     expectedOutput: "42",
     challengeInstruction:
-      "Change the value assigned to the variable (e.g., use your favorite number) and print it."
+      "Create a variable with a number (for example, your favorite number) and print it. Your output should be exactly that number."
   },
   {
     title: "Working with Strings",
     explanation:
-      "Strings represent text. You can combine strings using the '+' operator and use methods like upper() or lower() to change case.\n\n" +
+      "Strings represent text. You can combine strings using the '+' operator and use methods like upper() or lower() to change their case.\n\n" +
       "In this lesson, you will combine two strings.",
-    starterCode: "# Combine two strings\nfirst = 'Hello'\nsecond = 'World'\nprint(first + ' ' + second)",
+    exampleCode: "# Example Code\nfirst = 'Hello'\nsecond = 'World'\nprint(first + ' ' + second)",
+    starterCode: "",
     expectedOutput: "Hello World",
     challengeInstruction:
-      "Modify the code to change the message (for example, print your name) and output it."
+      "Modify the code to change the message (for example, print your name) and output it exactly."
   },
   {
-    title: "Input and Output",
+    title: "Input: Talking to the Computer",
     explanation:
-      "Input and output let your program interact with users. `print()` displays text, and `input()` gets user data.\n\n" +
-      "Here, we simulate input by predefining a variable.",
-    starterCode: "# Simulate user input\nname = 'Alice'\nprint('Hello, ' + name)",
+      "🗣️ **Input is like having a conversation with the computer!** 💬\n\n" +
+      "1. **What is input()?**\n" +
+      "   - The input() function lets you ask the user for information.\n" +
+      "   - For example, `name = input('What is your name? ')` asks the user for their name.\n\n" +
+      "2. **Using Input:**\n" +
+      "   - You can use the input to personalize your program. For example, `print('Hello, ' + name)` greets the user by name.\n\n" +
+      "Now, look at the example code. Then, in the box below, write a program that asks for the user's name and prints a greeting.\n" +
+      "For simulation, the input will automatically be 'Alice'.",
+    exampleCode: "# Example Code\nname = input('Enter your name: ')\nprint('Hello, ' + name)",
+    starterCode: "",
     expectedOutput: "Hello, Alice",
     challengeInstruction:
-      "Change the variable value to your own name and print a greeting."
+      "Write a Python program that uses input() to ask for a name and prints a greeting. (For this challenge, when your code calls input(), it will automatically return 'Alice'.)\n" +
+      "Expected Output:\nHello, Alice\n\n" +
+      "Do not copy the example code; write your own solution. Then click 'Run My Code'."
   },
-  {
-    title: "Operators and Conditionals",
-    explanation:
-      "Operators perform calculations and comparisons. Conditionals (if, elif, else) let your program decide what to do based on conditions.\n\n" +
-      "In this lesson, you'll write an if statement to check a condition.",
-    starterCode: "# Use an if statement\nif 10 > 5:\n    print('Yes')",
-    expectedOutput: "Yes",
-    challengeInstruction:
-      "Write an if statement that prints 'Yes' when a number of your choice is greater than another. Modify the starter code accordingly."
-  },
-  {
-    title: "Loops",
-    explanation:
-      "Loops let you repeat actions without rewriting code. In this lesson, you'll use a for loop to print a sequence of numbers.",
-    starterCode: "# For loop example\nfor i in range(1, 4):\n    print(i)",
-    expectedOutput: "1\n2\n3",
-    challengeInstruction:
-      "Modify the loop so that it prints numbers 1 through 5 on separate lines."
-  },
-  {
-    title: "Functions",
-    explanation:
-      "Functions are reusable blocks of code that perform specific tasks. They help you organize your code by letting you call the same code multiple times.\n\n" +
-      "In this lesson, you'll define a function that prints a greeting.",
-    starterCode: "# Define a function that greets\n\ndef greet():\n    print('Hello')\n\ngreet()",
-    expectedOutput: "Hello",
-    challengeInstruction:
-      "Define your own function that prints a personalized greeting and call that function."
-  },
-  {
-    title: "Real-World Application: Tip Calculator",
-    explanation:
-      "Now, apply what you've learned by creating a simple tip calculator. The program will calculate a tip based on a bill amount and tip percentage, then print the tip and the total bill.\n\n" +
-      "This project uses variables, arithmetic, and output to solve a real-world problem.",
-    starterCode:
-      "# Tip Calculator Template\nbill = 50  # Example bill amount\ntip_percentage = 20  # Tip percentage\n\n" +
-      "# Calculate tip (write your code here)\n\n" +
-      "# Calculate total (write your code here)\n\n" +
-      "# Expected Output for a $50 bill with 20% tip:\n# Tip: 10.0\n# Total: 60.0",
-    expectedOutput: "Tip: 10.0\nTotal: 60.0",
-    challengeInstruction:
-      "Complete the code to calculate the tip and total bill. For a $50 bill with a 20% tip, your program should output exactly:\nTip: 10.0\nTotal: 60.0"
-  }
+  // Additional topics can follow here...
 ];
 
 // -------------------------
@@ -121,7 +91,7 @@ const mathTopics = [
     title: "Addition",
     explanation:
       "➕ **Addition is like putting things together!**\n\n" +
-      "For example, `5 + 3 = 8`.\n\n" +
+      "For example, 5 + 3 = 8.\n\n" +
       "Let's practice addition by solving a problem.",
     problem: "What is 7 + 5?",
     answer: 12
@@ -130,7 +100,7 @@ const mathTopics = [
     title: "Subtraction",
     explanation:
       "➖ **Subtraction is like taking things away!**\n\n" +
-      "For example, `10 - 4 = 6`.\n\n" +
+      "For example, 10 - 4 = 6.\n\n" +
       "Let's practice subtraction by solving a problem.",
     problem: "What is 15 - 7?",
     answer: 8
@@ -139,7 +109,7 @@ const mathTopics = [
     title: "Multiplication",
     explanation:
       "✖️ **Multiplication is like adding groups of things!**\n\n" +
-      "For example, `3 × 4 = 12`.\n\n" +
+      "For example, 3 × 4 = 12.\n\n" +
       "Let's practice multiplication by solving a problem.",
     problem: "What is 6 × 7?",
     answer: 42
@@ -148,7 +118,7 @@ const mathTopics = [
     title: "Division",
     explanation:
       "➗ **Division is like sharing things equally!**\n\n" +
-      "For example, `12 ÷ 3 = 4`.\n\n" +
+      "For example, 12 ÷ 3 = 4.\n\n" +
       "Let's practice division by solving a problem.",
     problem: "What is 20 ÷ 5?",
     answer: 4
@@ -191,7 +161,7 @@ const mathAnswer = document.getElementById("math-answer");
 const submitMathAnswer = document.getElementById("submit-math-answer");
 const mathFeedback = document.getElementById("math-feedback");
 
-// Set total topics count in progress indicator for Python
+// Set total topics count for Python
 progressTotal.innerText = pythonTopics.length;
 
 // -------------------------
@@ -307,7 +277,7 @@ function loadTopic(index) {
   const topic = pythonTopics[index];
   topicTitle.innerText = topic.title;
   topicExplanation.innerText = topic.explanation;
-  // Show example code if available
+  // Display example code (editable) in its own box
   if (document.getElementById("example-code")) {
     document.getElementById("example-code").innerText = topic.exampleCode || "";
   }
@@ -315,7 +285,7 @@ function loadTopic(index) {
     document.getElementById("example-output").innerText = "";
   }
   challengeInstructionsEl.innerText = topic.challengeInstruction;
-  // Start with an empty code editor to encourage writing original code
+  // Clear the user’s challenge code box for original input
   codeEditor.value = "";
   codeOutput.innerText = "";
   challengeFeedback.innerText = "";
@@ -343,7 +313,7 @@ function loadMathTopic(index) {
 // -------------------------
 function updateNavigationButtons() {
   prevTopicBtn.disabled = currentTopicIndex === 0;
-  nextTopicBtn.disabled = true; // Next button enabled only when challenge passes
+  nextTopicBtn.disabled = true; // Only enable after successful challenge run
 }
 
 // -------------------------
@@ -366,6 +336,7 @@ function builtinRead(x) {
   return Sk.builtinFiles["files"][x];
 }
 
+// Run Example Code (for the read-only example area)
 if (runExampleBtn) {
   runExampleBtn.addEventListener("click", () => {
     const exampleCodeText = pythonTopics[currentTopicIndex].exampleCode;
@@ -393,12 +364,26 @@ runCodeBtn.addEventListener("click", () => {
     return;
   }
   
+  // Do not allow copying the example code
+  if (userCode === pythonTopics[currentTopicIndex].exampleCode.trim()) {
+    challengeFeedback.innerText = "Please do not copy the example code. Write your own solution.";
+    return;
+  }
+  
   codeOutput.innerText = "";
   challengeFeedback.innerText = "";
-  Sk.configure({
+  
+  // Prepare Skulpt configuration; if input() is used, simulate it.
+  let skulptConfig = {
     output: (text) => { codeOutput.innerText += text; },
     read: builtinRead
-  });
+  };
+  if (userCode.indexOf("input(") !== -1) {
+    skulptConfig.inputfun = function(prompt) { return "Alice"; };
+  }
+  
+  Sk.configure(skulptConfig);
+  
   Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, userCode, true))
     .then(() => {
       const userOutput = codeOutput.innerText.trim();
@@ -466,25 +451,25 @@ let correctAnswers = 0;
 let totalQuestions = 0;
 
 function generateRandomProblem() {
-  const topicTitle = mathTopics[currentMathTopicIndex].title;
+  const topicName = mathTopics[currentMathTopicIndex].title;
   let problem = "";
   let answer = 0;
-  if (topicTitle === "Addition") {
+  if (topicName === "Addition") {
     const num1 = Math.floor(Math.random() * 100);
     const num2 = Math.floor(Math.random() * 100);
     problem = `${num1} + ${num2}`;
     answer = num1 + num2;
-  } else if (topicTitle === "Subtraction") {
+  } else if (topicName === "Subtraction") {
     const num1 = Math.floor(Math.random() * 100);
     const num2 = Math.floor(Math.random() * num1);
     problem = `${num1} - ${num2}`;
     answer = num1 - num2;
-  } else if (topicTitle === "Multiplication") {
+  } else if (topicName === "Multiplication") {
     const num1 = Math.floor(Math.random() * 12) + 1;
     const num2 = Math.floor(Math.random() * 12) + 1;
     problem = `${num1} × ${num2}`;
     answer = num1 * num2;
-  } else if (topicTitle === "Division") {
+  } else if (topicName === "Division") {
     const num2 = Math.floor(Math.random() * 12) + 1;
     const answerNum = Math.floor(Math.random() * 12) + 1;
     const num1 = num2 * answerNum;
