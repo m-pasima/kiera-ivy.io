@@ -5,14 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Learn Python & Math Pro</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Firebase SDKs -->
+  
+  <!-- Firebase SDKs (compat versions for simplicity) -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-  <!-- Skulpt for Python -->
+  
+  <!-- Skulpt for running Python code -->
   <script src="https://cdn.jsdelivr.net/npm/skulpt@latest/dist/skulpt.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/skulpt@latest/dist/skulpt-stdlib.js"></script>
-  <!-- Confetti for celebrations -->
+  
+  <!-- Canvas-Confetti for celebrations -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
@@ -24,6 +27,7 @@
     </div>
   </header>
 
+  <!-- Authentication Section -->
   <section id="auth-section">
     <h2>Welcome! Please Log In or Sign Up</h2>
     <div id="auth-form">
@@ -38,19 +42,28 @@
     </div>
   </section>
 
+  <!-- Main Content (visible after login) -->
   <main id="main-content" style="display:none;">
+    <!-- Section Navigation Buttons -->
     <nav id="sections-nav">
-      <button id="python-section-btn">Learn Python</button>
+      <button id="python-section-btn" class="active">Learn Python</button>
       <button id="math-section-btn">Math Fun</button>
     </nav>
-
+    
     <!-- Python Section -->
     <section id="python-section">
+      <!-- Topics Navigation for Python -->
       <nav id="topics-nav"></nav>
+      
+      <!-- Topic Header: Title & Progress -->
       <section id="topic-header">
         <h2 id="topic-title">Topic Title</h2>
-        <div id="progress-indicator">Topic <span id="progress-current">1</span> of <span id="progress-total">18</span></div>
+        <div id="progress-indicator">
+          Topic <span id="progress-current">1</span> of <span id="progress-total">8</span>
+        </div>
       </section>
+      
+      <!-- Topic Explanation & Example -->
       <section id="topic-content">
         <p id="topic-explanation">Detailed explanation and examples for the topic will appear here.</p>
         <h3>Example Code</h3>
@@ -58,6 +71,8 @@
         <button id="run-example-btn">Run Example Code</button>
         <pre id="example-output"></pre>
       </section>
+      
+      <!-- Interactive Coding Challenge Section -->
       <section id="challenge-section">
         <h3>Interactive Challenge</h3>
         <p id="challenge-instructions">Challenge instructions will appear here.</p>
@@ -66,12 +81,14 @@
         <pre id="code-output"></pre>
         <p id="challenge-feedback"></p>
       </section>
+      
+      <!-- Navigation Buttons for Python Topics -->
       <section id="topic-navigation">
         <button id="prev-topic-btn" disabled>Previous Topic</button>
         <button id="next-topic-btn" disabled>Next Topic</button>
       </section>
     </section>
-
+    
     <!-- Math Section -->
     <section id="math-section" style="display:none;">
       <h2>Math Fun!</h2>
