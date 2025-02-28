@@ -22,70 +22,125 @@ const pythonTopics = [
   {
     title: "Hello, Python!",
     explanation:
-      "🌟 Welcome to Python! 🌟\n\n" +
-      "Python is like a magic wand that lets you tell the computer what to do. 🪄\n\n" +
-      "1. **The print() Function:**\n" +
-      "   - The print() function outputs text to the screen like a megaphone 🎤.\n" +
-      "   - For example, the code below makes the computer say 'Hello, World!'.\n\n" +
-      "2. **Comments:**\n" +
-      "   - Comments start with a '#' and are ignored by Python. They help you explain your code.\n\n" +
-      "Now, look at the example code. Then, in the box below, write your own program that prints exactly:\n\n" +
+      "🌟 **Welcome to Python!** 🌟\n\n" +
+      "Python is a special language that lets you talk to the computer. It is fun and easy to learn! \n\n" +
+      "**1. The print() Function:**\n" +
+      "   - The print() function tells the computer to show some text on the screen. \n" +
+      "   - For example, when you write: print('Hello, World!'), the computer will show: Hello, World! \n\n" +
+      "**2. Comments:**\n" +
+      "   - Comments start with a # symbol and help you explain what your code does. The computer ignores comments.\n\n" +
+      "Now, look at the example code below. In the Challenge box, write your own code so that it prints exactly:\n\n" +
       "I am learning Python!",
     exampleCode: "# Example Code\nprint('Hello, World!')",
-    // The example code is shown separately; the challenge code box is initially empty.
-    starterCode: "", 
+    starterCode: "", // Learner’s challenge box starts empty
     expectedOutput: "I am learning Python!",
     challengeInstruction:
       "Write a Python program in the box below that prints exactly:\nI am learning Python!\n\n" +
-      "Do not copy the example code. Your code should be your own. Then click 'Run My Code'."
+      "Do not copy the example code. Your code must be your own. Then click 'Run My Code'."
   },
   {
     title: "Variables and Data Types",
     explanation:
-      "Variables are like little boxes that hold data. Python has many types: strings (text), integers (numbers), floats (decimals), and booleans (True/False).\n\n" +
-      "In this lesson, you'll create a variable and print its value.",
+      "🗃️ **Variables are like treasure chests!**\n\n" +
+      "Variables store your data so you can use it later. In Python, you can store numbers, words, and more. \n\n" +
+      "For example, if you write:\n  number = 42\n  print(number)\n\n" +
+      "the computer will show: 42. \n" +
+      "Try using your favorite number instead!",
     exampleCode: "# Example Code\nnumber = 42\nprint(number)",
     starterCode: "",
     expectedOutput: "42",
     challengeInstruction:
-      "Create a variable with a number (for example, your favorite number) and print it. Your output should be exactly that number."
+      "Create a variable with a number of your choice (for example, your favorite number) and print it. The output should be exactly that number."
   },
   {
     title: "Working with Strings",
     explanation:
-      "Strings represent text. You can combine strings using the '+' operator and use methods like upper() or lower() to change their case.\n\n" +
-      "In this lesson, you will combine two strings.",
+      "🔤 **Strings are like words or sentences!**\n\n" +
+      "Strings are text surrounded by quotes. You can combine (or concatenate) strings using the '+' operator. \n\n" +
+      "For example:\n  first = 'Hello'\n  second = 'World'\n  print(first + ' ' + second)\n\n" +
+      "will display: Hello World.\n" +
+      "Now, try changing the message to something that is special to you!",
     exampleCode: "# Example Code\nfirst = 'Hello'\nsecond = 'World'\nprint(first + ' ' + second)",
     starterCode: "",
     expectedOutput: "Hello World",
     challengeInstruction:
-      "Modify the code to change the message (for example, print your name) and output it exactly."
+      "Modify the code in the box below to print a different message (for example, your name) exactly."
   },
   {
-    title: "Input: Talking to the Computer",
+    title: "Input and Output",
     explanation:
-      "🗣️ **Input is like having a conversation with the computer!** 💬\n\n" +
-      "1. **What is input()?**\n" +
-      "   - The input() function lets you ask the user for information.\n" +
-      "   - For example, `name = input('What is your name? ')` asks the user for their name.\n\n" +
-      "2. **Using Input:**\n" +
-      "   - You can use the input to personalize your program. For example, `print('Hello, ' + name)` greets the user by name.\n\n" +
-      "Now, look at the example code. Then, in the box below, write a program that asks for the user's name and prints a greeting.\n" +
-      "For simulation, the input will automatically be 'Alice'.",
+      "🗣️ **Input is like talking to the computer!**\n\n" +
+      "The input() function asks the user for information. For example, if you write:\n  name = input('What is your name? ')\n  print('Hello, ' + name)\n\n" +
+      "this will ask for your name and then greet you.\n" +
+      "In our simulation, whenever your code calls input(), it will automatically return 'Alice'.",
     exampleCode: "# Example Code\nname = input('Enter your name: ')\nprint('Hello, ' + name)",
     starterCode: "",
     expectedOutput: "Hello, Alice",
     challengeInstruction:
-      "Write a Python program that uses input() to ask for a name and prints a greeting. (For this challenge, when your code calls input(), it will automatically return 'Alice'.)\n" +
-      "Expected Output:\nHello, Alice\n\n" +
-      "Do not copy the example code; write your own solution. Then click 'Run My Code'."
+      "Write a Python program that asks for the user's name using input() and then prints a greeting. (When your code calls input(), it will automatically return 'Alice'.)\nExpected Output:\nHello, Alice"
   },
-  // Additional topics can follow here...
+  {
+    title: "Operators and Conditionals",
+    explanation:
+      "➕➖ **Operators and conditionals help your computer make decisions!**\n\n" +
+      "Operators let you do math or compare numbers. Conditionals (using if, elif, else) let your program decide what to do.\n\n" +
+      "For example:\n  if 10 > 5:\n    print('Yes')\n\n" +
+      "This code checks if 10 is greater than 5 and prints 'Yes'.\n" +
+      "Now, try writing your own if statement using your own numbers!",
+    exampleCode: "# Example Code\nif 10 > 5:\n    print('Yes')",
+    starterCode: "",
+    expectedOutput: "Yes",
+    challengeInstruction:
+      "Write an if statement that prints 'Yes' when a condition you choose is met. Your output should be exactly 'Yes'."
+  },
+  {
+    title: "Loops",
+    explanation:
+      "🔄 **Loops help you do something many times without writing it over and over!**\n\n" +
+      "A for loop can repeat actions for each item in a list or a range of numbers. \n\n" +
+      "For example:\n  for i in range(1, 4):\n    print(i)\n\n" +
+      "prints:\n1\n2\n3\n" +
+      "Now, try to print the numbers from 1 to 5 using a loop!",
+    exampleCode: "# Example Code\nfor i in range(1, 4):\n    print(i)",
+    starterCode: "",
+    expectedOutput: "1\n2\n3",
+    challengeInstruction:
+      "Modify the loop in the box below so that it prints the numbers 1 through 5 (each on a new line)."
+  },
+  {
+    title: "Functions",
+    explanation:
+      "🔧 **Functions are like little machines that do a job for you!**\n\n" +
+      "Functions let you write code once and use it many times. \n\n" +
+      "For example, if you define a function like:\n  def greet():\n      print('Hello')\n  greet()\n\n" +
+      "it will print 'Hello'.\n" +
+      "Now, try creating your own function that prints a greeting that is personal to you!",
+    exampleCode: "# Example Code\n\ndef greet():\n    print('Hello')\n\ngreet()",
+    starterCode: "",
+    expectedOutput: "Hello",
+    challengeInstruction:
+      "Define your own function that prints a personalized greeting (for example, 'Hi, I am [Your Name]!') and call that function."
+  },
+  {
+    title: "Real-World Application: Tip Calculator",
+    explanation:
+      "💡 **Tip Calculator Project:**\n\n" +
+      "Imagine you go to a restaurant and need to calculate a tip. Your program will take a bill amount and a tip percentage, then calculate the tip and the total bill.\n\n" +
+      "This project uses variables and math to solve a real-life problem. \n" +
+      "For example, if the bill is $50 and the tip is 20%, the tip is $10 and the total is $60.",
+    exampleCode:
+      "# Example Code (for reference; do not copy)\n// For a $50 bill with 20% tip:\n// Tip: 10.0\n// Total: 60.0",
+    starterCode: "",
+    expectedOutput: "Tip: 10.0\nTotal: 60.0",
+    challengeInstruction:
+      "Write a Python program that calculates the tip and total for a $50 bill with a 20% tip. Your program should output exactly:\nTip: 10.0\nTotal: 60.0\n\nWrite your own solution in the box below."
+  }
 ];
 
 // -------------------------
 // Math Topics Array (Basic Arithmetic)
 // -------------------------
+// (Math topics remain unchanged)
 const mathTopics = [
   {
     title: "Addition",
@@ -205,7 +260,6 @@ document.getElementById("auth-btn").addEventListener("click", async () => {
   }
 });
 
-// Handle Logout
 document.getElementById("logout-btn").addEventListener("click", async () => {
   try {
     await auth.signOut();
@@ -214,7 +268,9 @@ document.getElementById("logout-btn").addEventListener("click", async () => {
   }
 });
 
+// -------------------------
 // Authentication State Listener
+// -------------------------
 auth.onAuthStateChanged(async (user) => {
   if (user) {
     authSection.style.display = "none";
@@ -277,7 +333,7 @@ function loadTopic(index) {
   const topic = pythonTopics[index];
   topicTitle.innerText = topic.title;
   topicExplanation.innerText = topic.explanation;
-  // Display example code (editable) in its own box
+  // Display example code in its own box (learners may edit if they wish)
   if (document.getElementById("example-code")) {
     document.getElementById("example-code").innerText = topic.exampleCode || "";
   }
@@ -285,7 +341,7 @@ function loadTopic(index) {
     document.getElementById("example-output").innerText = "";
   }
   challengeInstructionsEl.innerText = topic.challengeInstruction;
-  // Clear the user’s challenge code box for original input
+  // Clear the user's challenge code box for original input
   codeEditor.value = "";
   codeOutput.innerText = "";
   challengeFeedback.innerText = "";
@@ -313,7 +369,7 @@ function loadMathTopic(index) {
 // -------------------------
 function updateNavigationButtons() {
   prevTopicBtn.disabled = currentTopicIndex === 0;
-  nextTopicBtn.disabled = true; // Only enable after successful challenge run
+  nextTopicBtn.disabled = true;
 }
 
 // -------------------------
@@ -332,11 +388,11 @@ function updateProgressDisplay() {
 // -------------------------
 function builtinRead(x) {
   if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
-      throw "File not found: '" + x + "'";
+    throw "File not found: '" + x + "'";
   return Sk.builtinFiles["files"][x];
 }
 
-// Run Example Code (for the read-only example area)
+// Run Example Code for the Example Box
 if (runExampleBtn) {
   runExampleBtn.addEventListener("click", () => {
     const exampleCodeText = pythonTopics[currentTopicIndex].exampleCode;
@@ -355,7 +411,7 @@ if (runExampleBtn) {
   });
 }
 
-// Run User Code for Python Challenge
+// Run User Code for the Challenge
 runCodeBtn.addEventListener("click", () => {
   const userCode = codeEditor.value.trim();
   
@@ -363,8 +419,7 @@ runCodeBtn.addEventListener("click", () => {
     challengeFeedback.innerText = "Please write your own code before running.";
     return;
   }
-  
-  // Do not allow copying the example code
+  // Ensure the learner does not simply copy the example code
   if (userCode === pythonTopics[currentTopicIndex].exampleCode.trim()) {
     challengeFeedback.innerText = "Please do not copy the example code. Write your own solution.";
     return;
@@ -373,7 +428,7 @@ runCodeBtn.addEventListener("click", () => {
   codeOutput.innerText = "";
   challengeFeedback.innerText = "";
   
-  // Prepare Skulpt configuration; if input() is used, simulate it.
+  // Configure Skulpt; if input() is used, simulate it by returning "Alice"
   let skulptConfig = {
     output: (text) => { codeOutput.innerText += text; },
     read: builtinRead
@@ -381,7 +436,6 @@ runCodeBtn.addEventListener("click", () => {
   if (userCode.indexOf("input(") !== -1) {
     skulptConfig.inputfun = function(prompt) { return "Alice"; };
   }
-  
   Sk.configure(skulptConfig);
   
   Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, userCode, true))
