@@ -135,6 +135,23 @@ body {
     line-height: 1.6;
   }
   
+  #example-code, #suggested-output {
+    background: #1e1e2f;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: monospace;
+    color: #e0e0e0;
+    margin: 10px 0;
+  }
+  
+  #example-code {
+    border: 2px solid #00d2ff;
+  }
+  
+  #suggested-output {
+    border: 2px solid #27ae60;
+  }
+  
   /* Challenge Section */
   #challenge-section {
     background: #1e1e2f;
