@@ -3,16 +3,17 @@ body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
     margin: 0;
     padding: 0;
-    background: #f0f8ff;
-    color: #333;
+    background: linear-gradient(135deg, #1e1e2f, #2b2b45);
+    color: #e0e0e0;
   }
   
   header {
-    background: #2e86de;
-    color: #fff;
+    background: linear-gradient(135deg, #ff0080, #ff8c00);
+    color: #ffffff;
     padding: 20px;
     text-align: center;
     position: relative;
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.7);
   }
   
   header h1 {
@@ -23,7 +24,7 @@ body {
     position: absolute;
     top: 20px;
     right: 20px;
-    background: #e74c3c;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
     color: #fff;
     border: none;
     padding: 10px;
@@ -32,17 +33,17 @@ body {
   }
   
   #logout-btn:hover {
-    background: #c0392b;
+    opacity: 0.9;
   }
   
   /* Authentication Section */
   #auth-section {
     padding: 20px;
     max-width: 500px;
-    margin: 20px auto;
-    background: #fff;
+    margin: 30px auto;
+    background: #2b2b45;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.7);
     text-align: center;
   }
   
@@ -55,23 +56,26 @@ body {
   #auth-form input {
     width: 80%;
     padding: 10px;
-    margin: 5px 0;
-    border: 2px solid #ccc;
+    margin: 8px 0;
+    border: 2px solid #555;
     border-radius: 5px;
+    background: #1e1e2f;
+    color: #e0e0e0;
   }
   
   #auth-form button {
     padding: 10px 20px;
-    background: #2e86de;
+    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
+    font-size: 1em;
   }
   
   #auth-form button:hover {
-    background: #1b4f72;
+    opacity: 0.9;
   }
   
   #toggle-auth-text {
@@ -81,11 +85,11 @@ body {
   /* Stage Section */
   #stage-section {
     padding: 20px;
-    max-width: 800px;
-    margin: 20px auto;
-    background: #fff;
+    max-width: 900px;
+    margin: 30px auto;
+    background: #2b2b45;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.7);
   }
   
   #stages-container {
@@ -103,7 +107,7 @@ body {
   #stage-list li {
     margin: 5px;
     padding: 8px 12px;
-    background: #ccc;
+    background: #555;
     border-radius: 5px;
     font-size: 0.9em;
   }
@@ -124,18 +128,41 @@ body {
     text-align: center;
   }
   
+  #stage-title {
+    margin-top: 0;
+  }
+  
+  #game-container {
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  #game-canvas {
+    border: 2px solid #ffffff;
+    background: rgba(0, 0, 0, 0.2);
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+  
   #complete-stage-btn {
     padding: 10px 20px;
-    background: #2e86de;
+    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 15px;
+    font-size: 1em;
   }
   
-  #complete-stage-btn:hover {
-    background: #1b4f72;
+  #complete-stage-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  #complete-stage-btn:hover:enabled {
+    opacity: 0.9;
   }
   
   #stage-feedback {

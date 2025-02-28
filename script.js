@@ -36,7 +36,7 @@ const db = getFirestore(app);
 // -------------------------
 // Unified Authentication Form
 // -------------------------
-let authMode = "login";  // can be "login" or "signup"
+let authMode = "login";  // "login" or "signup"
 
 // DOM Elements for Auth
 const authSection = document.getElementById("auth-section");
@@ -69,7 +69,6 @@ toggleAuthModeLink.addEventListener("click", (e) => {
 authBtn.addEventListener("click", async () => {
   const email = authEmailInput.value;
   const password = authPasswordInput.value;
-
   if (authMode === "signup") {
     const name = authNameInput.value;
     if (!name) {
@@ -111,7 +110,6 @@ logoutBtn.addEventListener("click", async () => {
 // Listen for authentication state changes
 onAuthStateChanged(auth, async (user) => {
   if (user) {
-    // Hide auth section and show stage progression
     authSection.style.display = "none";
     stageSection.style.display = "block";
     logoutBtn.style.display = "inline-block";
@@ -134,7 +132,7 @@ const completeStageBtn = document.getElementById("complete-stage-btn");
 const stageFeedback = document.getElementById("stage-feedback");
 const welcomeMessage = document.getElementById("welcome-message");
 
-// Load user progress and welcome message from Firestore
+// Load user progress and display a personalized welcome message
 async function loadUserProgress(user) {
   const userDocRef = doc(db, "users", user.uid);
   const docSnap = await getDoc(userDocRef);
@@ -147,7 +145,6 @@ async function loadUserProgress(user) {
   } else {
     await setDoc(userDocRef, { stage: 1 });
   }
-  // Personalize welcome message
   if (name === "Kiera" || name === "Ivy") {
     welcomeMessage.innerText = `Welcome, ${name}! Let's have some fun learning Python!`;
   } else if (name) {
@@ -158,7 +155,7 @@ async function loadUserProgress(user) {
   updateStageUI(stage);
 }
 
-// Update stage list and current stage display
+// Update stage list and current stage details
 function updateStageUI(currentStage) {
   stageList.innerHTML = "";
   for (let i = 1; i <= 20; i++) {
@@ -175,6 +172,10 @@ function updateStageUI(currentStage) {
   }
   stageTitle.innerText = "Stage " + currentStage + ": " + getStageTitle(currentStage);
   stageDescription.innerText = getStageDescription(currentStage);
+  // Disable the Complete Stage button until the challenge is met
+  completeStageBtn.disabled = true;
+  // Load the interactive game for the current stage
+  loadGameForStage(currentStage);
 }
 
 // Stage titles (customize as needed)
@@ -207,31 +208,129 @@ function getStageTitle(stage) {
 // Stage descriptions (customize as needed)
 function getStageDescription(stage) {
   const descriptions = {
-    1: "Welcome to Stage 1! Learn what Python is and see a simple example.",
-    2: "Explore printing text and using variables to store data.",
-    3: "Learn about numbers and simple arithmetic operations.",
-    4: "Discover how to make decisions using if-else statements.",
-    5: "Loops help you repeat tasks – let’s dive in!",
-    6: "Understand how functions let you reuse code.",
-    7: "Learn to store multiple items with lists and tuples.",
-    8: "Dictionaries use key-value pairs – like a mini database!",
-    9: "Play with strings and text manipulation.",
-    10: "Explore useful modules and libraries in Python.",
-    11: "Learn how to read and write files.",
-    12: "Master error handling to keep your programs running.",
-    13: "Work with data using Python’s powerful tools.",
-    14: "Get introduced to Object-Oriented Programming (OOP).",
-    15: "Dive deeper into the world of functions.",
-    16: "Learn advanced techniques for looping.",
-    17: "Understand recursion – a fun way to solve problems.",
-    18: "Practice debugging to fix errors in your code.",
-    19: "Start building small projects to apply what you’ve learned.",
-    20: "Take on the final challenge and showcase your Python skills!"
+    1: "Learn what Python is and see a simple example.",
+    2: "Discover how to print text and use variables.",
+    3: "Practice basic arithmetic operations.",
+    4: "Learn to make decisions using if-else statements.",
+    5: "Understand loops to repeat tasks.",
+    6: "Explore how functions let you reuse code.",
+    7: "Manage groups of data with lists and tuples.",
+    8: "Use dictionaries to store key-value pairs.",
+    9: "Manipulate text with string operations.",
+    10: "Dive into modules and libraries.",
+    11: "Learn how to handle files.",
+    12: "Master error handling techniques.",
+    13: "Work with data in exciting ways.",
+    14: "Get introduced to Object-Oriented Programming.",
+    15: "Deepen your understanding of functions.",
+    16: "Tackle advanced loop challenges.",
+    17: "Solve problems with recursion.",
+    18: "Practice debugging to fix errors.",
+    19: "Start building your own projects.",
+    20: "Take on the final challenge and show your skills!"
   };
   return descriptions[stage] || "Keep exploring and mastering Python!";
 }
 
-// Confetti function using canvas-confetti
+// -------------------------
+// Interactive Game for Each Stage
+// -------------------------
+// This simple game uses a canvas where falling objects appear.
+// Kids must click on the objects ("catch" them) until they reach a threshold.
+// Once the threshold is met, the challenge is complete and the Complete Stage button is enabled.
+
+let gameCanvas, gameCtx;
+let fallingObjects = [];
+let gameScore = 0;
+let gameThreshold = 5; // will be set based on stage
+let gameAnimationFrame;
+
+// Initialize and load the game for the given stage
+function loadGameForStage(stage) {
+  gameThreshold = 4 + stage; // Increase challenge with stage number
+  gameScore = 0;
+  fallingObjects = [];
+  
+  gameCanvas = document.getElementById("game-canvas");
+  if (!gameCanvas) return;
+  gameCtx = gameCanvas.getContext("2d");
+  gameCanvas.width = 600;
+  gameCanvas.height = 400;
+  
+  // Start generating falling objects
+  generateFallingObject();
+  // Start the game loop
+  cancelAnimationFrame(gameAnimationFrame);
+  gameLoop();
+  // Ensure click listener is added (avoid duplicate listeners)
+  gameCanvas.removeEventListener("click", onCanvasClick);
+  gameCanvas.addEventListener("click", onCanvasClick);
+}
+
+// Generate a new falling object with random properties
+function generateFallingObject() {
+  let obj = {
+    x: Math.random() * gameCanvas.width,
+    y: -20,
+    radius: 15,
+    speed: 1 + Math.random() * 2
+  };
+  fallingObjects.push(obj);
+  if (gameScore < gameThreshold) {
+    setTimeout(generateFallingObject, 1500);
+  }
+}
+
+// Main game loop: update positions and draw objects
+function gameLoop() {
+  gameCtx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
+  
+  fallingObjects.forEach((obj) => {
+    obj.y += obj.speed;
+    gameCtx.beginPath();
+    gameCtx.arc(obj.x, obj.y, obj.radius, 0, 2 * Math.PI);
+    gameCtx.fillStyle = "#ffea00"; // brilliant neon yellow
+    gameCtx.fill();
+    gameCtx.strokeStyle = "#ffffff";
+    gameCtx.stroke();
+  });
+  
+  // Remove objects that have fallen off-screen
+  fallingObjects = fallingObjects.filter(obj => obj.y - obj.radius < gameCanvas.height);
+  
+  // Draw the score on the canvas
+  gameCtx.font = "20px Arial";
+  gameCtx.fillStyle = "#ffffff";
+  gameCtx.fillText("Caught: " + gameScore + " / " + gameThreshold, 10, 30);
+  
+  if (gameScore < gameThreshold) {
+    gameAnimationFrame = requestAnimationFrame(gameLoop);
+  } else {
+    gameCanvas.removeEventListener("click", onCanvasClick);
+    stageFeedback.innerText = "Challenge completed! Click 'Complete Stage' to proceed.";
+    completeStageBtn.disabled = false;
+  }
+}
+
+// Handle canvas clicks to check if an object was caught
+function onCanvasClick(event) {
+  const rect = gameCanvas.getBoundingClientRect();
+  const x = event.clientX - rect.left;
+  const y = event.clientY - rect.top;
+  for (let i = 0; i < fallingObjects.length; i++) {
+    let obj = fallingObjects[i];
+    let dist = Math.sqrt((x - obj.x) ** 2 + (y - obj.y) ** 2);
+    if (dist <= obj.radius) {
+      gameScore++;
+      fallingObjects.splice(i, 1);
+      break;
+    }
+  }
+}
+
+// -------------------------
+// Confetti Celebration on Stage Completion
+// -------------------------
 function launchConfetti() {
   confetti({
     particleCount: 100,
@@ -240,11 +339,12 @@ function launchConfetti() {
   });
 }
 
-// When "Complete Stage" is clicked, advance to the next stage and trigger confetti
+// -------------------------
+// Complete Stage Handler
+// -------------------------
 completeStageBtn.addEventListener("click", async () => {
   const user = auth.currentUser;
   if (!user) return;
-  // Get current stage number from stage title text
   const currentStageText = stageTitle.innerText;
   let currentStage = parseInt(currentStageText.split(" ")[1]);
   if (currentStage < 20) {
@@ -267,5 +367,4 @@ completeStageBtn.addEventListener("click", async () => {
     launchConfetti();
   }
 });
-
 

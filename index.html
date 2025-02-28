@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Learn Python: Stages & Badges</title>
+  <title>Learn Python: Stages & Challenges</title>
   <link rel="stylesheet" href="style.css" />
 
   <!-- Firebase Modular SDKs -->
@@ -12,7 +12,7 @@
   <script type="module" src="https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js"></script>
   <script type="module" src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js"></script>
 
-  <!-- Canvas-Confetti Library -->
+  <!-- Canvas-Confetti Library for celebrations -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
@@ -26,7 +26,7 @@
   <section id="auth-section">
     <h2>Welcome to Learn Python!</h2>
     <div id="auth-form">
-      <!-- Name field is only shown in Sign Up mode -->
+      <!-- Name field shown only for Sign Up -->
       <input type="text" id="auth-name" placeholder="Name" style="display:none;" />
       <input type="email" id="auth-email" placeholder="Email" />
       <input type="password" id="auth-password" placeholder="Password" />
@@ -42,15 +42,19 @@
   <section id="stage-section" style="display:none;">
     <h2 id="welcome-message">Welcome!</h2>
     <div id="stages-container">
-      <!-- List of 20 stages will be generated dynamically -->
+      <!-- Stage list will be generated dynamically -->
       <ul id="stage-list"></ul>
     </div>
     <div id="current-stage-content">
       <h3 id="stage-title">Stage 1: Introduction</h3>
       <p id="stage-description">
-        Welcome to Stage 1! In this stage, you’ll learn what Python is and see a simple example.
+        Welcome to Stage 1! In this stage, you'll learn what Python is and see a simple example.
       </p>
-      <button id="complete-stage-btn">Complete Stage</button>
+      <!-- Game container: Complete the challenge to unlock stage completion -->
+      <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+      </div>
+      <button id="complete-stage-btn" disabled>Complete Stage</button>
       <p id="stage-feedback"></p>
     </div>
   </section>
