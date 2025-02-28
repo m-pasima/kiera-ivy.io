@@ -1,245 +1,245 @@
 /* General Styles */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    background: linear-gradient(135deg, #1e1e2f, #2b2b45);
-    color: #e0e0e0;
-  }
-  
-  header {
-    background: linear-gradient(135deg, #ff0080, #ff8c00);
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 0 15px rgba(255, 140, 0, 0.7);
-  }
-  
-  header h1 {
-    margin: 0;
-  }
-  
-  #user-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  #logout-btn {
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
-    border: none;
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  #logout-btn:hover {
-    opacity: 0.9;
-  }
-  
-  /* Authentication Section */
-  #auth-section {
-    max-width: 500px;
-    margin: 40px auto;
-    padding: 20px;
-    background: #2b2b45;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.7);
-    text-align: center;
-  }
-  
-  #auth-form input {
-    width: 80%;
-    padding: 10px;
-    margin: 8px 0;
-    border: 2px solid #555;
-    border-radius: 5px;
-    background: #1e1e2f;
-    color: #e0e0e0;
-  }
-  
-  #auth-form button {
-    padding: 10px 20px;
-    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  #auth-form button:hover {
-    opacity: 0.9;
-  }
-  
-  #toggle-auth-text {
-    margin-top: 10px;
-  }
-  
-  /* Main Content Section */
-  #main-content {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #2b2b45;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.7);
-  }
-  
-  /* Topics Navigation */
-  #topics-nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  #topics-nav button {
-    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
-    border: none;
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  #topics-nav button.active {
-    background: #ffea00;
-    color: #1e1e2f;
-  }
-  
-  /* Topic Header */
-  #topic-header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  #topic-title {
-    margin: 0;
-    color: #ffea00;
-  }
-  
-  #progress-indicator {
-    margin-top: 8px;
-    font-size: 1em;
-  }
-  
-  /* Topic Explanation */
-  #topic-content {
-    margin-bottom: 20px;
-    padding: 15px;
-    background: #1e1e2f;
-    border-radius: 5px;
-    line-height: 1.6;
-  }
-  
-  #example-code, #example-output {
-    background: #1e1e2f;
-    padding: 10px;
-    border-radius: 5px;
-    font-family: monospace;
-    color: #e0e0e0;
-    margin: 10px 0;
-  }
-  
-  #example-code {
-    border: 2px solid #00d2ff;
-  }
-  
-  #example-output {
-    border: 2px solid #27ae60;
-  }
-  
-  #run-example-btn {
-    padding: 10px 20px;
-    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 10px;
-  }
-  
-  #run-example-btn:hover {
-    opacity: 0.9;
-  }
-  
-  /* Challenge Section */
-  #challenge-section {
-    background: #1e1e2f;
-    padding: 15px;
-    border: 2px solid #ffffff;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  
-  #challenge-instructions {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-    color: #ffea00;
-  }
-  
-  #code-editor {
-    width: 100%;
-    height: 150px;
-    font-family: monospace;
-    font-size: 1em;
-    background: #2b2b45;
-    color: #e0e0e0;
-    border: 2px solid #555;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  #run-code-btn {
-    padding: 10px 20px;
-    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 10px;
-  }
-  
-  #run-code-btn:hover {
-    opacity: 0.9;
-  }
-  
-  #code-output {
-    background: #000;
-    color: #00ff00;
-    padding: 10px;
-    border-radius: 5px;
-    min-height: 50px;
-    margin-top: 10px;
-  }
-  
-  #challenge-feedback {
-    margin-top: 10px;
-    font-size: 1em;
-    color: #27ae60;
-  }
-  
-  /* Topic Navigation Buttons */
-  #topic-navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  #topic-navigation button {
-    padding: 10px 20px;
-    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  #topic-navigation button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #2b2b45);
+  color: #e0e0e0;
+}
+
+header {
+  background: linear-gradient(135deg, #ff0080, #ff8c00);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.7);
+}
+
+header h1 {
+  margin: 0;
+}
+
+#user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#logout-btn {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border: none;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#logout-btn:hover {
+  opacity: 0.9;
+}
+
+/* Authentication Section */
+#auth-section {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #2b2b45;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.7);
+  text-align: center;
+}
+
+#auth-form input {
+  width: 80%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 2px solid #555;
+  border-radius: 5px;
+  background: #1e1e2f;
+  color: #e0e0e0;
+}
+
+#auth-form button {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#auth-form button:hover {
+  opacity: 0.9;
+}
+
+#toggle-auth-text {
+  margin-top: 10px;
+}
+
+/* Main Content Section */
+#main-content {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #2b2b45;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+/* Topics Navigation */
+#topics-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#topics-nav button {
+  background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+  border: none;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#topics-nav button.active {
+  background: #ffea00;
+  color: #1e1e2f;
+}
+
+/* Topic Header */
+#topic-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#topic-title {
+  margin: 0;
+  color: #ffea00;
+}
+
+#progress-indicator {
+  margin-top: 8px;
+  font-size: 1em;
+}
+
+/* Topic Explanation */
+#topic-content {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #1e1e2f;
+  border-radius: 5px;
+  line-height: 1.6;
+}
+
+#example-code, #example-output {
+  background: #1e1e2f;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: monospace;
+  color: #e0e0e0;
+  margin: 10px 0;
+}
+
+#example-code {
+  border: 2px solid #00d2ff;
+}
+
+#example-output {
+  border: 2px solid #27ae60;
+}
+
+#run-example-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+#run-example-btn:hover {
+  opacity: 0.9;
+}
+
+/* Challenge Section */
+#challenge-section {
+  background: #1e1e2f;
+  padding: 15px;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+#challenge-instructions {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  color: #ffea00;
+}
+
+#code-editor {
+  width: 100%;
+  height: 150px;
+  font-family: monospace;
+  font-size: 1em;
+  background: #2b2b45;
+  color: #e0e0e0;
+  border: 2px solid #555;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#run-code-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+#run-code-btn:hover {
+  opacity: 0.9;
+}
+
+#code-output {
+  background: #000;
+  color: #00ff00;
+  padding: 10px;
+  border-radius: 5px;
+  min-height: 50px;
+  margin-top: 10px;
+}
+
+#challenge-feedback {
+  margin-top: 10px;
+  font-size: 1em;
+  color: #27ae60;
+}
+
+/* Topic Navigation Buttons */
+#topic-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+#topic-navigation button {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#topic-navigation button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
