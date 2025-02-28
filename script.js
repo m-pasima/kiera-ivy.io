@@ -21,59 +21,97 @@ const firebaseConfig = {
   const topics = [
     {
       title: "Basics of Python",
-      explanation: "What is Python? Python is a high-level, interpreted language known for its clear syntax and readability. In this lesson, you'll learn its basic structure, the importance of indentation and comments, and how to write your first program. For example, printing a message.",
+      explanation:
+        "Welcome to Python!\n\n" +
+        "1. **The print() Function:**\n" +
+        "   - The print() function outputs text to the screen.\n" +
+        "   - The text must be enclosed in quotes (either single or double).\n\n" +
+        "2. **Comments:**\n" +
+        "   - Anything following a '#' is a comment and is ignored by Python. Use comments to explain your code.\n\n" +
+        "3. **Your First Program:**\n" +
+        "   - A classic first program prints a message to the screen. In our example, we print 'Hello, World!'\n\n" +
+        "Make sure you modify the starter code to write your own version of the program.",
       starterCode: "# Write your code below\nprint('Hello, World!')",
       expectedOutput: "Hello, World!",
-      challengeInstruction: "Write your own code to print 'Hello, World!' (modify the starter code) and click 'Run Code'."
+      challengeInstruction:
+        "Modify the starter code to print 'Hello, World!' exactly as shown below.\n" +
+        "Expected Output:\nHello, World!\n\n" +
+        "Do not add extra print statements or spaces. Then click 'Run Code'."
     },
     {
       title: "Variables and Data Types",
-      explanation: "Variables store data, and Python supports several data types like strings, integers, floats, and booleans. In this lesson, you'll learn how to assign values to variables and perform type conversion.",
+      explanation:
+        "Variables store data. Python supports data types such as strings (text), integers (whole numbers), floats (decimal numbers), and booleans (True/False).\n\n" +
+        "In this lesson, you'll learn how to assign a value to a variable and print it.",
       starterCode: "# Assign a number to a variable\nnumber = 42\nprint(number)",
       expectedOutput: "42",
-      challengeInstruction: "Create your own variable (using a different number) and print it."
+      challengeInstruction:
+        "Change the value assigned to the variable (for example, use your favorite number) and print it."
     },
     {
       title: "Working with Strings",
-      explanation: "Strings represent text. Learn how to create strings, combine them, and use basic methods such as upper(), lower(), and strip(). This is essential for handling text in your programs.",
+      explanation:
+        "Strings represent text in Python. You can combine strings using the '+' operator and use methods like upper() or lower() to change their case.\n\n" +
+        "In this lesson, you will combine two strings.",
       starterCode: "# Combine two strings\nfirst = 'Hello'\nsecond = 'World'\nprint(first + ' ' + second)",
       expectedOutput: "Hello World",
-      challengeInstruction: "Modify the code to change the message (e.g., use your name) and print it."
+      challengeInstruction:
+        "Modify the code to change the message (for example, use your name) and print the result."
     },
     {
       title: "Input and Output",
-      explanation: "Input and output are how your program interacts with users. You use print() to show messages and input() to get data. (For this challenge, we simulate input by predefining a variable.)",
+      explanation:
+        "Input and output allow your program to interact with users. The print() function displays text, and input() gets data from the user.\n\n" +
+        "In this lesson, we simulate input by predefining a variable.",
       starterCode: "# Simulate user input\nname = 'Alice'\nprint('Hello, ' + name)",
       expectedOutput: "Hello, Alice",
-      challengeInstruction: "Change the variable to your own name and print a greeting."
+      challengeInstruction:
+        "Change the variable value to your own name and print a greeting."
     },
     {
       title: "Operators and Conditionals",
-      explanation: "Operators allow you to perform calculations and comparisons. Conditionals let you run code based on conditions (if, elif, else). They help your program make decisions.",
+      explanation:
+        "Operators perform calculations and comparisons. Conditionals (if, elif, else) let your program make decisions based on conditions.\n\n" +
+        "In this lesson, you'll use an if statement to check a condition.",
       starterCode: "# Use an if statement\nif 10 > 5:\n    print('Yes')",
       expectedOutput: "Yes",
-      challengeInstruction: "Write an if statement that prints 'Yes' when 10 is greater than 5, but modify it to use your own numbers."
+      challengeInstruction:
+        "Write an if statement that prints 'Yes' when a number you choose is greater than another number. Modify the starter code accordingly."
     },
     {
       title: "Loops",
-      explanation: "Loops allow you to repeat actions without writing code over and over. Learn how to use for loops to iterate over sequences and while loops to repeat code as long as a condition is true.",
+      explanation:
+        "Loops let you repeat actions without writing the same code multiple times. For loops are used to iterate over a sequence, and while loops repeat code as long as a condition is true.\n\n" +
+        "In this lesson, you'll use a for loop to print a sequence of numbers.",
       starterCode: "# For loop example\nfor i in range(1, 4):\n    print(i)",
       expectedOutput: "1\n2\n3",
-      challengeInstruction: "Modify the loop to print numbers 1 to 5 on separate lines."
+      challengeInstruction:
+        "Modify the loop so that it prints numbers 1 through 5 on separate lines."
     },
     {
       title: "Functions",
-      explanation: "Functions are reusable blocks of code that perform a specific task. Learn how to define functions, pass parameters, and return values. They help you organize your code.",
-      starterCode: "# Define a function that greets\n def greet():\n     print('Hello')\n\ngreet()",
+      explanation:
+        "Functions are reusable blocks of code that perform specific tasks. They help you organize your code by allowing you to write it once and use it many times.\n\n" +
+        "In this lesson, you'll define a function that prints a greeting.",
+      starterCode: "# Define a function that greets\n\ndef greet():\n    print('Hello')\n\ngreet()",
       expectedOutput: "Hello",
-      challengeInstruction: "Define your own function that prints a greeting of your choice and call it."
+      challengeInstruction:
+        "Define your own function that prints a personalized greeting and call that function."
     },
     {
       title: "Real-World Application: Tip Calculator",
-      explanation: "In this real-world challenge, you'll create a simple tip calculator. The program should compute a tip based on a bill amount and tip percentage. This applies what you've learned about variables, arithmetic, and output.",
-      starterCode: "# Tip Calculator Template\nbill = 50  # Example bill amount\ntip_percentage = 20  # Tip percentage\n\n# Calculate tip (write your code here)\n\n# Calculate total (write your code here)\n\n# Expected output for a $50 bill with 20% tip:\n# Tip: 10.0\n# Total: 60.0",
+      explanation:
+        "Now, apply what you've learned by creating a simple tip calculator. The program will calculate a tip based on a bill amount and a tip percentage, then print the tip and the total bill.\n\n" +
+        "This project uses variables, arithmetic, and output to solve a real-world problem.",
+      starterCode:
+        "# Tip Calculator Template\nbill = 50  # Example bill amount\n" +
+        "tip_percentage = 20  # Tip percentage\n\n" +
+        "# Calculate tip (write your code here)\n\n" +
+        "# Calculate total (write your code here)\n\n" +
+        "# Expected Output for a $50 bill with 20% tip:\n# Tip: 10.0\n# Total: 60.0",
       expectedOutput: "Tip: 10.0\nTotal: 60.0",
-      challengeInstruction: "Write the missing code to calculate the tip and total bill. For a $50 bill and 20% tip, the program should output:\nTip: 10.0\nTotal: 60.0"
+      challengeInstruction:
+        "Complete the code to calculate the tip and total bill. For a $50 bill with a 20% tip, your program should output exactly:\nTip: 10.0\nTotal: 60.0"
     }
   ];
   
@@ -143,7 +181,6 @@ const firebaseConfig = {
       try {
         const userCredential = await auth.createUserWithEmailAndPassword(email, password);
         authMessage.innerText = "Sign up successful! You are now logged in.";
-        // Save user's name and initial progress (topic 0) to Firestore
         await db.collection("users").doc(userCredential.user.uid).set({ stage: 0, name: name });
       } catch (err) {
         authMessage.innerText = "Error: " + err.message;
@@ -170,11 +207,9 @@ const firebaseConfig = {
   // Listen for authentication state changes
   auth.onAuthStateChanged(async (user) => {
     if (user) {
-      // Hide auth section, show main content
       authSection.style.display = "none";
       mainContent.style.display = "block";
       logoutBtn.style.display = "inline-block";
-      // Retrieve user progress from Firestore
       const userDoc = await db.collection("users").doc(user.uid).get();
       let stage = 0;
       let name = "";
@@ -188,7 +223,6 @@ const firebaseConfig = {
       populateTopicsNav();
       loadTopic(currentTopicIndex);
     } else {
-      // Show auth section, hide main content
       authSection.style.display = "block";
       mainContent.style.display = "none";
       logoutBtn.style.display = "none";
@@ -229,7 +263,7 @@ const firebaseConfig = {
   // Update Previous/Next buttons
   function updateNavigationButtons() {
     prevTopicBtn.disabled = currentTopicIndex === 0;
-    nextTopicBtn.disabled = true; // Next button only enabled when challenge passed
+    nextTopicBtn.disabled = true; // Next button enabled only when challenge passes
   }
   
   // Update progress indicator and active nav button
@@ -251,11 +285,11 @@ const firebaseConfig = {
   }
   
   runCodeBtn.addEventListener("click", () => {
+    // Ensure learner has modified the starter code
     const userCode = codeEditor.value.trim();
     const starterCode = topics[currentTopicIndex].starterCode.trim();
-    // Check if the learner has modified the starter code
     if (userCode === starterCode) {
-      challengeFeedback.innerText = "Please write your own code (modify the starter code) before submitting.";
+      challengeFeedback.innerText = "Please modify the starter code with your own solution before submitting.";
       return;
     }
     codeOutput.innerText = "";
@@ -272,7 +306,7 @@ const firebaseConfig = {
             challengeFeedback.innerText = "Great job! Your output is correct.";
             nextTopicBtn.disabled = false;
             launchConfetti();
-            // Update user's progress in Firestore
+            // Update progress in Firestore
             const user = auth.currentUser;
             if (user && currentTopicIndex < topics.length) {
               db.collection("users").doc(user.uid).update({ stage: currentTopicIndex });
@@ -322,7 +356,7 @@ const firebaseConfig = {
     }
   });
   
-  // Append navigation buttons to the topic-navigation section if not already present
+  // Append navigation buttons to a container if not already present
   const topicNavContainer = document.getElementById("topic-navigation");
   if (!topicNavContainer) {
     const navContainer = document.createElement("div");
