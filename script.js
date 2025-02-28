@@ -26,11 +26,10 @@ const topics = [
       "   - Anything following a '#' is a comment and is ignored by Python. Use comments to explain your code.\n\n" +
       "3. **Your First Program:**\n" +
       "   - A classic first program prints a message. The example below prints 'Hello, World!'.\n\n" +
-      "Now, modify the code so that it prints 'I am learning Python!' exactly.",
+      "Now, write your own code to print 'I am learning Python!'.",
     exampleCode: "# Example Code\nprint('Hello, World!')",
-    starterCode: "# Write your code below\nprint('Hello, World!')",
     challengeInstruction:
-      "Modify the starter code so that it prints 'I am learning Python!' exactly as shown below.\n" +
+      "Write a Python program that prints 'I am learning Python!' exactly as shown below.\n" +
       "Expected Output:\nI am learning Python!\n\n" +
       "Do not add extra print statements or spaces. Then click 'Run Code'."
   },
@@ -40,9 +39,26 @@ const topics = [
       "Variables store data. Python supports data types such as strings (text), integers (whole numbers), floats (decimal numbers), and booleans (True/False).\n\n" +
       "In this lesson, you'll learn how to assign a value to a variable and print it.",
     exampleCode: "# Example Code\nnumber = 42\nprint(number)",
-    starterCode: "# Assign a number to a variable\nnumber = 42\nprint(number)",
     challengeInstruction:
-      "Change the value assigned to the variable (for example, use your favorite number) and print it."
+      "Write a Python program that assigns your favorite number to a variable and prints it."
+  },
+  {
+    title: "Working with Strings",
+    explanation:
+      "Strings represent text in Python. You can combine strings using the '+' operator and use methods like upper() or lower() to change their case.\n\n" +
+      "In this lesson, you will combine two strings.",
+    exampleCode: "# Example Code\nfirst = 'Hello'\nsecond = 'World'\nprint(first + ' ' + second)",
+    challengeInstruction:
+      "Write a Python program that combines two strings (for example, your first and last name) and prints the result."
+  },
+  {
+    title: "Input and Output",
+    explanation:
+      "Input and output allow your program to interact with users. The print() function displays text, and input() gets data from the user.\n\n" +
+      "In this lesson, you will write a program that greets the user by name.",
+    exampleCode: "# Example Code\nname = input('Enter your name: ')\nprint('Hello, ' + name)",
+    challengeInstruction:
+      "Write a Python program that asks the user for their name and prints a greeting."
   },
   // Add more topics here...
 ];
@@ -165,7 +181,7 @@ function loadTopic(index) {
   exampleCode.innerText = topic.exampleCode;
   exampleOutput.innerText = "";
   challengeInstructionsEl.innerText = topic.challengeInstruction;
-  codeEditor.value = topic.starterCode;
+  codeEditor.value = ""; // Start with an empty editor
   codeOutput.innerText = "";
   challengeFeedback.innerText = "";
   nextTopicBtn.disabled = true; // Disable Next button by default
@@ -214,11 +230,10 @@ runExampleBtn.addEventListener("click", () => {
 // Run User Code
 runCodeBtn.addEventListener("click", () => {
   const userCode = codeEditor.value.trim();
-  const starterCode = topics[currentTopicIndex].starterCode.trim();
 
-  // Check if the user has modified the starter code
-  if (userCode === starterCode) {
-    challengeFeedback.innerText = "Please modify the starter code with your own solution before submitting.";
+  // Check if the user has written any code
+  if (!userCode) {
+    challengeFeedback.innerText = "Please write your own code before running.";
     return;
   }
 
