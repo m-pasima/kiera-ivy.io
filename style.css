@@ -1,0 +1,146 @@
+/* General Styles */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f8ff;
+    color: #333;
+  }
+  
+  header {
+    background: #2e86de;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  #logout-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #logout-btn:hover {
+    background: #c0392b;
+  }
+  
+  /* Authentication Section */
+  #auth-section {
+    padding: 20px;
+    max-width: 500px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  #auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #auth-form input {
+    width: 80%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #auth-form button {
+    padding: 10px 20px;
+    background: #2e86de;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  #auth-form button:hover {
+    background: #1b4f72;
+  }
+  
+  #toggle-auth-text {
+    margin-top: 10px;
+  }
+  
+  /* Stage Section */
+  #stage-section {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  #stages-container {
+    margin-bottom: 20px;
+  }
+  
+  #stage-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  #stage-list li {
+    margin: 5px;
+    padding: 8px 12px;
+    background: #ccc;
+    border-radius: 5px;
+    font-size: 0.9em;
+  }
+  
+  #stage-list li.completed {
+    background: #2ecc71;
+    color: #fff;
+  }
+  
+  #stage-list li.current {
+    background: #f9bf3b;
+    color: #1b4f72;
+    font-weight: bold;
+  }
+  
+  /* Current Stage Content */
+  #current-stage-content {
+    text-align: center;
+  }
+  
+  #complete-stage-btn {
+    padding: 10px 20px;
+    background: #2e86de;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  #complete-stage-btn:hover {
+    background: #1b4f72;
+  }
+  
+  #stage-feedback {
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #27ae60;
+  }
+  

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Learn Python: Stages & Badges</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Firebase Modular SDKs -->
+  <script type="module" src="https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js"></script>
+
+  <!-- Canvas-Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Learn Python: Journey Through 20 Stages</h1>
+    <p id="header-subtitle">Learn, level up, and earn badges along the way!</p>
+    <button id="logout-btn" style="display:none;">Logout</button>
+  </header>
+
+  <!-- Authentication Section -->
+  <section id="auth-section">
+    <h2>Welcome to Learn Python!</h2>
+    <div id="auth-form">
+      <!-- Name field is only shown in Sign Up mode -->
+      <input type="text" id="auth-name" placeholder="Name" style="display:none;" />
+      <input type="email" id="auth-email" placeholder="Email" />
+      <input type="password" id="auth-password" placeholder="Password" />
+      <button id="auth-btn">Login</button>
+      <p id="toggle-auth-text">
+        Don't have an account? <a href="#" id="toggle-auth-mode">Sign Up</a>
+      </p>
+    </div>
+    <p id="auth-message"></p>
+  </section>
+
+  <!-- Stage Progression Section -->
+  <section id="stage-section" style="display:none;">
+    <h2 id="welcome-message">Welcome!</h2>
+    <div id="stages-container">
+      <!-- List of 20 stages will be generated dynamically -->
+      <ul id="stage-list"></ul>
+    </div>
+    <div id="current-stage-content">
+      <h3 id="stage-title">Stage 1: Introduction</h3>
+      <p id="stage-description">
+        Welcome to Stage 1! In this stage, you’ll learn what Python is and see a simple example.
+      </p>
+      <button id="complete-stage-btn">Complete Stage</button>
+      <p id="stage-feedback"></p>
+    </div>
+  </section>
+
+  <!-- Load our custom script as a module -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
