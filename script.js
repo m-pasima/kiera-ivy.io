@@ -34,6 +34,43 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 // -------------------------
+// Stage Challenges
+// -------------------------
+const challenges = [
+  {
+    title: "Introduction to Python",
+    description: "Print 'Hello, World!'",
+    starterCode: "print('Hello, World!')",
+    expectedOutput: "Hello, World!"
+  },
+  {
+    title: "Variables",
+    description: "Write code to print 'I love Python'",
+    starterCode: "print('I love Python')",
+    expectedOutput: "I love Python"
+  },
+  {
+    title: "Basic Arithmetic",
+    description: "Write code to add 2 and 3 and print the result.",
+    starterCode: "print(2 + 3)",
+    expectedOutput: "5"
+  },
+  {
+    title: "Conditionals",
+    description: "Write an if statement that prints 'Yes' if 10 is greater than 5.",
+    starterCode: "if 10 > 5:\n    print('Yes')",
+    expectedOutput: "Yes"
+  },
+  {
+    title: "Loops",
+    description: "Write a for loop that prints numbers 1 to 3 on separate lines.",
+    starterCode: "for i in range(1, 4):\n    print(i)",
+    expectedOutput: "1\n2\n3"
+  }
+  // Extend with more challenges up to stage 20
+];
+
+// -------------------------
 // Unified Authentication Form
 // -------------------------
 let authMode = "login";  // "login" or "signup"
@@ -155,7 +192,7 @@ async function loadUserProgress(user) {
   updateStageUI(stage);
 }
 
-// Update stage list and current stage details
+// Update stage list and current stage details; load challenge for the stage
 function updateStageUI(currentStage) {
   stageList.innerHTML = "";
   for (let i = 1; i <= 20; i++) {
@@ -170,166 +207,84 @@ function updateStageUI(currentStage) {
     }
     stageList.appendChild(li);
   }
-  stageTitle.innerText = "Stage " + currentStage + ": " + getStageTitle(currentStage);
-  stageDescription.innerText = getStageDescription(currentStage);
-  // Disable the Complete Stage button until the challenge is met
-  completeStageBtn.disabled = true;
-  // Load the interactive game for the current stage
-  loadGameForStage(currentStage);
-}
-
-// Stage titles (customize as needed)
-function getStageTitle(stage) {
-  const titles = {
-    1: "Introduction to Python",
-    2: "Printing & Variables",
-    3: "Basic Arithmetic",
-    4: "Conditionals",
-    5: "Loops",
-    6: "Functions",
-    7: "Lists & Tuples",
-    8: "Dictionaries",
-    9: "Working with Strings",
-    10: "Modules & Libraries",
-    11: "File Handling",
-    12: "Error Handling",
-    13: "Working with Data",
-    14: "Introduction to OOP",
-    15: "More on Functions",
-    16: "Advanced Loops",
-    17: "Recursion",
-    18: "Debugging Techniques",
-    19: "Building Projects",
-    20: "Final Challenge"
-  };
-  return titles[stage] || "Python Mastery";
-}
-
-// Stage descriptions (customize as needed)
-function getStageDescription(stage) {
-  const descriptions = {
-    1: "Learn what Python is and see a simple example.",
-    2: "Discover how to print text and use variables.",
-    3: "Practice basic arithmetic operations.",
-    4: "Learn to make decisions using if-else statements.",
-    5: "Understand loops to repeat tasks.",
-    6: "Explore how functions let you reuse code.",
-    7: "Manage groups of data with lists and tuples.",
-    8: "Use dictionaries to store key-value pairs.",
-    9: "Manipulate text with string operations.",
-    10: "Dive into modules and libraries.",
-    11: "Learn how to handle files.",
-    12: "Master error handling techniques.",
-    13: "Work with data in exciting ways.",
-    14: "Get introduced to Object-Oriented Programming.",
-    15: "Deepen your understanding of functions.",
-    16: "Tackle advanced loop challenges.",
-    17: "Solve problems with recursion.",
-    18: "Practice debugging to fix errors.",
-    19: "Start building your own projects.",
-    20: "Take on the final challenge and show your skills!"
-  };
-  return descriptions[stage] || "Keep exploring and mastering Python!";
-}
-
-// -------------------------
-// Interactive Game for Each Stage
-// -------------------------
-// This simple game uses a canvas where falling objects appear.
-// Kids must click on the objects ("catch" them) until they reach a threshold.
-// Once the threshold is met, the challenge is complete and the Complete Stage button is enabled.
-
-let gameCanvas, gameCtx;
-let fallingObjects = [];
-let gameScore = 0;
-let gameThreshold = 5; // will be set based on stage
-let gameAnimationFrame;
-
-// Initialize and load the game for the given stage
-function loadGameForStage(stage) {
-  gameThreshold = 4 + stage; // Increase challenge with stage number
-  gameScore = 0;
-  fallingObjects = [];
-  
-  gameCanvas = document.getElementById("game-canvas");
-  if (!gameCanvas) return;
-  gameCtx = gameCanvas.getContext("2d");
-  gameCanvas.width = 600;
-  gameCanvas.height = 400;
-  
-  // Start generating falling objects
-  generateFallingObject();
-  // Start the game loop
-  cancelAnimationFrame(gameAnimationFrame);
-  gameLoop();
-  // Ensure click listener is added (avoid duplicate listeners)
-  gameCanvas.removeEventListener("click", onCanvasClick);
-  gameCanvas.addEventListener("click", onCanvasClick);
-}
-
-// Generate a new falling object with random properties
-function generateFallingObject() {
-  let obj = {
-    x: Math.random() * gameCanvas.width,
-    y: -20,
-    radius: 15,
-    speed: 1 + Math.random() * 2
-  };
-  fallingObjects.push(obj);
-  if (gameScore < gameThreshold) {
-    setTimeout(generateFallingObject, 1500);
-  }
-}
-
-// Main game loop: update positions and draw objects
-function gameLoop() {
-  gameCtx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
-  
-  fallingObjects.forEach((obj) => {
-    obj.y += obj.speed;
-    gameCtx.beginPath();
-    gameCtx.arc(obj.x, obj.y, obj.radius, 0, 2 * Math.PI);
-    gameCtx.fillStyle = "#ffea00"; // brilliant neon yellow
-    gameCtx.fill();
-    gameCtx.strokeStyle = "#ffffff";
-    gameCtx.stroke();
-  });
-  
-  // Remove objects that have fallen off-screen
-  fallingObjects = fallingObjects.filter(obj => obj.y - obj.radius < gameCanvas.height);
-  
-  // Draw the score on the canvas
-  gameCtx.font = "20px Arial";
-  gameCtx.fillStyle = "#ffffff";
-  gameCtx.fillText("Caught: " + gameScore + " / " + gameThreshold, 10, 30);
-  
-  if (gameScore < gameThreshold) {
-    gameAnimationFrame = requestAnimationFrame(gameLoop);
+  // Load the corresponding challenge (if defined)
+  const challenge = challenges[currentStage - 1];
+  if (challenge) {
+    stageTitle.innerText = "Stage " + currentStage + ": " + challenge.title;
+    stageDescription.innerText = "Complete the coding challenge below:";
+    loadChallengeForStage(challenge);
   } else {
-    gameCanvas.removeEventListener("click", onCanvasClick);
-    stageFeedback.innerText = "Challenge completed! Click 'Complete Stage' to proceed.";
-    completeStageBtn.disabled = false;
+    stageTitle.innerText = "Stage " + currentStage + ": Final Challenge";
+    stageDescription.innerText = "Build your own project!";
+    // You can define a custom challenge for stages beyond the provided list.
+    loadChallengeForStage({
+      description: "Type your project code here.",
+      starterCode: "# Start coding...\n",
+      expectedOutput: ""
+    });
   }
-}
-
-// Handle canvas clicks to check if an object was caught
-function onCanvasClick(event) {
-  const rect = gameCanvas.getBoundingClientRect();
-  const x = event.clientX - rect.left;
-  const y = event.clientY - rect.top;
-  for (let i = 0; i < fallingObjects.length; i++) {
-    let obj = fallingObjects[i];
-    let dist = Math.sqrt((x - obj.x) ** 2 + (y - obj.y) ** 2);
-    if (dist <= obj.radius) {
-      gameScore++;
-      fallingObjects.splice(i, 1);
-      break;
-    }
-  }
+  completeStageBtn.disabled = true;
+  stageFeedback.innerText = "";
 }
 
 // -------------------------
-// Confetti Celebration on Stage Completion
+// Code Challenge Functions
+// -------------------------
+const challengeInstructions = document.getElementById("challenge-instructions");
+const codeEditor = document.getElementById("code-editor");
+const runCodeBtn = document.getElementById("run-code-btn");
+const codeOutput = document.getElementById("code-output");
+const challengeFeedback = document.getElementById("challenge-feedback");
+
+// Load a challenge into the code editor and instructions area
+function loadChallengeForStage(challenge) {
+  challengeInstructions.innerText = challenge.description;
+  codeEditor.value = challenge.starterCode;
+  codeOutput.innerText = "";
+  challengeFeedback.innerText = "";
+  // Save expected output for verification
+  codeEditor.dataset.expectedOutput = challenge.expectedOutput;
+}
+
+// Built-in read function for Skulpt
+function builtinRead(x) {
+  if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+      throw "File not found: '" + x + "'";
+  return Sk.builtinFiles["files"][x];
+}
+
+// Run the code in the editor using Skulpt and check the output
+runCodeBtn.addEventListener("click", () => {
+  const prog = codeEditor.value;
+  codeOutput.innerText = "";
+  challengeFeedback.innerText = "";
+  Sk.configure({
+      output: function(text) {
+          codeOutput.innerText += text;
+      },
+      read: builtinRead
+  });
+  Sk.misceval.asyncToPromise(function() {
+      return Sk.importMainWithBody("<stdin>", false, prog, true);
+  }).then(function() {
+      // Compare output to expected value (trim whitespace)
+      const userOutput = codeOutput.innerText.trim();
+      const expected = codeEditor.dataset.expectedOutput.trim();
+      if (userOutput === expected || expected === "") {
+          challengeFeedback.innerText = "Challenge completed! You may complete this stage.";
+          completeStageBtn.disabled = false;
+          launchConfetti();
+      } else {
+          challengeFeedback.innerText = "Output did not match the expected result. Try again!";
+      }
+  }, function(err) {
+      codeOutput.innerText = "Error: " + err.toString();
+      challengeFeedback.innerText = "There was an error in your code.";
+  });
+});
+
+// -------------------------
+// Confetti Celebration on Challenge Completion
 // -------------------------
 function launchConfetti() {
   confetti({
@@ -367,4 +322,3 @@ completeStageBtn.addEventListener("click", async () => {
     launchConfetti();
   }
 });
-
