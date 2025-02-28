@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Learn Python Pro</title>
+  <title>Learn Python & Math Pro</title>
   <link rel="stylesheet" href="style.css">
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
@@ -17,7 +17,7 @@
 </head>
 <body>
   <header>
-    <h1>Learn Python Pro</h1>
+    <h1>Learn Python & Math Pro</h1>
     <div id="user-info">
       <span id="user-name"></span>
       <button id="logout-btn" style="display:none;">Log Out</button>
@@ -39,29 +39,50 @@
   </section>
 
   <main id="main-content" style="display:none;">
-    <nav id="topics-nav"></nav>
-    <section id="topic-header">
-      <h2 id="topic-title">Topic Title</h2>
-      <div id="progress-indicator">Topic <span id="progress-current">1</span> of <span id="progress-total">18</span></div>
+    <nav id="sections-nav">
+      <button id="python-section-btn">Learn Python</button>
+      <button id="math-section-btn">Math Fun</button>
+    </nav>
+
+    <!-- Python Section -->
+    <section id="python-section">
+      <nav id="topics-nav"></nav>
+      <section id="topic-header">
+        <h2 id="topic-title">Topic Title</h2>
+        <div id="progress-indicator">Topic <span id="progress-current">1</span> of <span id="progress-total">18</span></div>
+      </section>
+      <section id="topic-content">
+        <p id="topic-explanation">Detailed explanation and examples for the topic will appear here.</p>
+        <h3>Example Code</h3>
+        <pre id="example-code"></pre>
+        <button id="run-example-btn">Run Example Code</button>
+        <pre id="example-output"></pre>
+      </section>
+      <section id="challenge-section">
+        <h3>Interactive Challenge</h3>
+        <p id="challenge-instructions">Challenge instructions will appear here.</p>
+        <textarea id="code-editor"></textarea>
+        <button id="run-code-btn">Run My Code</button>
+        <pre id="code-output"></pre>
+        <p id="challenge-feedback"></p>
+      </section>
+      <section id="topic-navigation">
+        <button id="prev-topic-btn" disabled>Previous Topic</button>
+        <button id="next-topic-btn" disabled>Next Topic</button>
+      </section>
     </section>
-    <section id="topic-content">
-      <p id="topic-explanation">Detailed explanation and examples for the topic will appear here.</p>
-      <h3>Example Code</h3>
-      <pre id="example-code"></pre>
-      <button id="run-example-btn">Run Example Code</button>
-      <pre id="example-output"></pre>
-    </section>
-    <section id="challenge-section">
-      <h3>Interactive Challenge</h3>
-      <p id="challenge-instructions">Challenge instructions will appear here.</p>
-      <textarea id="code-editor"></textarea>
-      <button id="run-code-btn">Run My Code</button>
-      <pre id="code-output"></pre>
-      <p id="challenge-feedback"></p>
-    </section>
-    <section id="topic-navigation">
-      <button id="prev-topic-btn" disabled>Previous Topic</button>
-      <button id="next-topic-btn" disabled>Next Topic</button>
+
+    <!-- Math Section -->
+    <section id="math-section" style="display:none;">
+      <h2>Math Fun!</h2>
+      <div id="math-topics-nav"></div>
+      <section id="math-topic-content">
+        <p id="math-topic-explanation">Learn and practice math in a fun way!</p>
+        <h3 id="math-problem"></h3>
+        <input type="number" id="math-answer" placeholder="Your answer" />
+        <button id="submit-math-answer">Submit Answer</button>
+        <p id="math-feedback"></p>
+      </section>
     </section>
   </main>
 
