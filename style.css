@@ -134,7 +134,7 @@ body {
     border-radius: 5px;
   }
   
-  /* Coding Challenge Section */
+  /* Challenge Section */
   #challenge-section {
     background: #1e1e2f;
     padding: 15px;
@@ -195,6 +195,7 @@ body {
   #topic-navigation {
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
   }
   
   #topic-navigation button {

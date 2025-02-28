@@ -6,7 +6,7 @@
   <title>Learn Python Pro</title>
   <link rel="stylesheet" href="style.css">
 
-  <!-- Firebase SDKs (we use the compat versions for simplicity) -->
+  <!-- Firebase SDKs (compat versions for simplicity) -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
@@ -15,11 +15,11 @@
   <script src="https://cdn.jsdelivr.net/npm/skulpt@latest/dist/skulpt.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/skulpt@latest/dist/skulpt-stdlib.js"></script>
 
-  <!-- Canvas-Confetti for celebration -->
+  <!-- Canvas-Confetti for celebration effects -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-  <!-- Header with title and logout button -->
+  <!-- Header with site title and user info -->
   <header>
     <h1>Learn Python Pro</h1>
     <div id="user-info">
@@ -28,7 +28,7 @@
     </div>
   </header>
 
-  <!-- Login/Signup Section (visible only when not logged in) -->
+  <!-- Authentication Section (visible if not logged in) -->
   <section id="auth-section">
     <h2>Welcome! Please Log In or Sign Up</h2>
     <div id="auth-form">
@@ -43,28 +43,28 @@
     </div>
   </section>
 
-  <!-- Main Content Section (visible after login) -->
+  <!-- Main Content (visible after login) -->
   <main id="main-content" style="display:none;">
-    <!-- Navigation for Topics -->
+    <!-- Topics Navigation Bar -->
     <nav id="topics-nav">
-      <!-- Topic buttons generated dynamically -->
+      <!-- Buttons generated dynamically -->
     </nav>
 
-    <!-- Topic Header: Shows the learner's current topic and progress -->
+    <!-- Topic Header: displays topic title and progress -->
     <section id="topic-header">
       <h2 id="topic-title">Topic Title</h2>
-      <div id="progress-indicator">Progress: <span id="progress-text">0 / 0</span></div>
+      <div id="progress-indicator">Topic <span id="progress-current">1</span> of <span id="progress-total">18</span></div>
     </section>
 
-    <!-- Detailed Topic Content -->
+    <!-- Topic Explanation -->
     <section id="topic-content">
-      <p id="topic-explanation">Topic explanation goes here...</p>
+      <p id="topic-explanation">Explanation for the topic will appear here.</p>
     </section>
 
-    <!-- Interactive Coding Challenge -->
+    <!-- Interactive Coding Challenge Section -->
     <section id="challenge-section">
       <h3>Interactive Challenge</h3>
-      <p id="challenge-instructions">Challenge instructions go here...</p>
+      <p id="challenge-instructions">Challenge instructions go here.</p>
       <textarea id="code-editor"></textarea>
       <button id="run-code-btn">Run Code</button>
       <pre id="code-output"></pre>

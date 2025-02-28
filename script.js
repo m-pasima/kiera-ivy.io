@@ -16,31 +16,135 @@ const firebaseConfig = {
   const db = firebase.firestore();
   
   // -------------------------
-  // Topics Array (Add more topics as needed)
+  // Topics Array (18 Topics)
   // -------------------------
   const topics = [
     {
-      title: "Introduction to Python",
-      explanation: "Python is a friendly language that lets you talk to your computer. With Python, you can create games, build websites, and solve puzzles. Let's start by printing a simple message.",
+      title: "Basics of Python",
+      explanation: "Learn what Python is and how it can be used to create games, websites, and solve puzzles. This section also covers setting up Python and understanding basic syntax like indentation and comments.",
       starterCode: "print('Hello, World!')",
       expectedOutput: "Hello, World!",
       challengeInstruction: "Type the code to print 'Hello, World!' and click 'Run Code'."
     },
     {
-      title: "Loops",
-      explanation: "Loops help you repeat actions without writing code repeatedly. In this topic, you'll learn how to use a for loop to print numbers.",
-      starterCode: "for i in range(1, 4):\n    print(i)",
-      expectedOutput: "1\n2\n3",
-      challengeInstruction: "Write a loop to print numbers 1, 2, and 3 (each on a new line)."
+      title: "Variables and Data Types",
+      explanation: "Variables store data. Learn about different data types such as strings, integers, floats, and booleans, and how to convert between them.",
+      starterCode: "x = 42\nprint(x)",
+      expectedOutput: "42",
+      challengeInstruction: "Create a variable with your favorite number and print it."
     },
     {
-      title: "Strings",
-      explanation: "Strings are used to represent text. They let you store words, sentences, and more. Let's see how to combine two strings.",
+      title: "Working with Strings",
+      explanation: "Strings represent text. Learn how to create, combine, and manipulate strings using methods like upper(), lower(), and strip().",
       starterCode: "first = 'Hello'\nsecond = 'World'\nprint(first + ' ' + second)",
       expectedOutput: "Hello World",
       challengeInstruction: "Concatenate two strings and print the result."
+    },
+    {
+      title: "Input and Output",
+      explanation: "Learn how to get input from the user and display output. This section covers using input() to receive data and print() to show results.",
+      starterCode: "name = 'Alice'  # In a real program, you'd use input()\nprint('Hello, ' + name)",
+      expectedOutput: "Hello, Alice",
+      challengeInstruction: "Simulate user input by assigning a name to a variable and printing a greeting."
+    },
+    {
+      title: "Operators",
+      explanation: "Operators allow you to perform calculations and comparisons. Learn arithmetic operators, comparison operators, and logical operators.",
+      starterCode: "print(3 + 4)",
+      expectedOutput: "7",
+      challengeInstruction: "Calculate 3 + 4 and print the result."
+    },
+    {
+      title: "Conditional Statements",
+      explanation: "Make decisions in your code using if, elif, and else statements. Learn how conditions control the flow of your program.",
+      starterCode: "if 10 > 5:\n    print('Yes')",
+      expectedOutput: "Yes",
+      challengeInstruction: "Write an if statement that prints 'Yes' when 10 is greater than 5."
+    },
+    {
+      title: "Loops",
+      explanation: "Loops allow you to repeat code. Learn how to use for loops and while loops to iterate over sequences.",
+      starterCode: "for i in range(1, 4):\n    print(i)",
+      expectedOutput: "1\n2\n3",
+      challengeInstruction: "Write a loop that prints numbers 1, 2, and 3 on separate lines."
+    },
+    {
+      title: "Lists and Tuples",
+      explanation: "Lists and tuples store collections of items. Lists are mutable while tuples are immutable.",
+      starterCode: "fruits = ['apple', 'banana']\nprint(fruits[0])",
+      expectedOutput: "apple",
+      challengeInstruction: "Create a list of fruits and print the first fruit."
+    },
+    {
+      title: "Dictionaries",
+      explanation: "Dictionaries store key-value pairs. Learn how to access and update dictionary data.",
+      starterCode: "person = { 'name': 'Alice', 'age': 10 }\nprint(person['name'])",
+      expectedOutput: "Alice",
+      challengeInstruction: "Create a dictionary for a person and print their name."
+    },
+    {
+      title: "Functions",
+      explanation: "Functions allow you to reuse code. Learn how to define functions, pass parameters, and return values.",
+      starterCode: "def greet():\n    print('Hello')\ngreet()",
+      expectedOutput: "Hello",
+      challengeInstruction: "Define a function that prints 'Hello' and call it."
+    },
+    {
+      title: "Error Handling",
+      explanation: "Learn to handle errors gracefully using try and except blocks.",
+      starterCode: "try:\n    print(10/0)\nexcept ZeroDivisionError:\n    print('Error!')",
+      expectedOutput: "Error!",
+      challengeInstruction: "Write a try-except block that catches a division by zero error and prints 'Error!'."
+    },
+    {
+      title: "File Handling",
+      explanation: "Learn the basics of reading from and writing to files.",
+      starterCode: "print('File handling example')",
+      expectedOutput: "File handling example",
+      challengeInstruction: "Simulate file handling by printing a message."
+    },
+    {
+      title: "Modules and Libraries",
+      explanation: "Modules let you use code written by others. Learn how to import built-in modules and use them.",
+      starterCode: "import math\nprint(math.sqrt(16))",
+      expectedOutput: "4.0",
+      challengeInstruction: "Import the math module and print the square root of 16."
+    },
+    {
+      title: "Object-Oriented Programming",
+      explanation: "Learn the basics of classes and objects, how to define methods, and create instances.",
+      starterCode: "class Dog:\n    def bark(self):\n        print('Woof')\nd = Dog()\nd.bark()",
+      expectedOutput: "Woof",
+      challengeInstruction: "Create a class for a dog that barks and call the bark method."
+    },
+    {
+      title: "Advanced Topics",
+      explanation: "Explore advanced Python topics like list comprehensions, generators, and decorators.",
+      starterCode: "nums = [i for i in range(3)]\nprint(nums)",
+      expectedOutput: "[0, 1, 2]",
+      challengeInstruction: "Use a list comprehension to create a list of numbers from 0 to 2 and print it."
+    },
+    {
+      title: "Fun Projects and Applications",
+      explanation: "Apply your knowledge by building fun projects such as games or interactive stories.",
+      starterCode: "print('Project coming soon')",
+      expectedOutput: "Project coming soon",
+      challengeInstruction: "Run the code to see a placeholder for a project."
+    },
+    {
+      title: "Debugging and Problem-Solving",
+      explanation: "Learn strategies for debugging your code and solving problems step by step.",
+      starterCode: "print('Debugging is fun')",
+      expectedOutput: "Debugging is fun",
+      challengeInstruction: "Print a message that shows debugging can be fun."
+    },
+    {
+      title: "Real-World Applications",
+      explanation: "Discover how Python is used in web scraping, automation, and even simple AI projects.",
+      starterCode: "print('Python in action!')",
+      expectedOutput: "Python in action!",
+      challengeInstruction: "Run the code to see an example of Python in real-world use."
     }
-    // Extend with additional topics (Conditionals, Functions, etc.)
   ];
   
   // -------------------------
@@ -62,7 +166,9 @@ const firebaseConfig = {
   const mainContent = document.getElementById("main-content");
   const topicsNav = document.getElementById("topics-nav");
   const topicTitle = document.getElementById("topic-title");
-  const progressText = document.getElementById("progress-text");
+  const progressIndicator = document.getElementById("progress-indicator");
+  const progressCurrent = document.getElementById("progress-current");
+  const progressTotal = document.getElementById("progress-total");
   const topicExplanation = document.getElementById("topic-explanation");
   const challengeInstructions = document.getElementById("challenge-instructions");
   const codeEditor = document.getElementById("code-editor");
@@ -70,12 +176,10 @@ const firebaseConfig = {
   const codeOutput = document.getElementById("code-output");
   const challengeFeedback = document.getElementById("challenge-feedback");
   const nextTopicBtn = document.getElementById("next-topic-btn");
-  const prevTopicBtn = document.createElement("button");
-  prevTopicBtn.id = "prev-topic-btn";
-  prevTopicBtn.innerText = "Previous Topic";
-  prevTopicBtn.disabled = true;
+  const prevTopicBtn = document.getElementById("prev-topic-btn");
   
-  const topicNavContainer = document.getElementById("topic-navigation");
+  // Set total topics count in progress indicator
+  progressTotal.innerText = topics.length;
   
   // -------------------------
   // Authentication: Toggle between Log In and Sign Up
@@ -110,7 +214,7 @@ const firebaseConfig = {
       try {
         const userCredential = await auth.createUserWithEmailAndPassword(email, password);
         authMessage.innerText = "Sign up successful! You are now logged in.";
-        // Save user's name and progress to Firestore
+        // Save user's name and initial progress (topic 0) to Firestore
         await db.collection("users").doc(userCredential.user.uid).set({ stage: 0, name: name });
       } catch (err) {
         authMessage.innerText = "Error: " + err.message;
@@ -137,11 +241,11 @@ const firebaseConfig = {
   // Listen for authentication state changes
   auth.onAuthStateChanged(async (user) => {
     if (user) {
-      // Hide auth section and show main content
+      // Hide authentication, show main content
       authSection.style.display = "none";
       mainContent.style.display = "block";
       logoutBtn.style.display = "inline-block";
-      // Retrieve user data from Firestore
+      // Retrieve user progress from Firestore
       const userDoc = await db.collection("users").doc(user.uid).get();
       let stage = 0;
       let name = "";
@@ -155,7 +259,7 @@ const firebaseConfig = {
       populateTopicsNav();
       loadTopic(currentTopicIndex);
     } else {
-      // Show auth section, hide main content
+      // Show authentication, hide main content
       authSection.style.display = "block";
       mainContent.style.display = "none";
       logoutBtn.style.display = "none";
@@ -195,22 +299,17 @@ const firebaseConfig = {
     updateProgressDisplay();
   }
   
-  // Update navigation buttons state (Previous / Next)
+  // Update Previous/Next buttons
   function updateNavigationButtons() {
-    // Previous button: disabled if first topic
-    if (currentTopicIndex > 0) {
-      prevTopicBtn.disabled = false;
-    } else {
-      prevTopicBtn.disabled = true;
-    }
-    // Next button: initially disabled until challenge is completed
+    // Previous button disabled if on first topic
+    prevTopicBtn.disabled = currentTopicIndex === 0;
+    // Next button disabled until challenge is passed
     nextTopicBtn.disabled = true;
   }
   
-  // Update progress indicator (e.g., "2 / 3 Topics Completed")
+  // Update progress indicator and active nav button
   function updateProgressDisplay() {
-    progressText.innerText = (currentTopicIndex + 1) + " / " + topics.length;
-    // Update active state on nav buttons
+    progressCurrent.innerText = currentTopicIndex + 1;
     const navButtons = document.querySelectorAll("#topics-nav button");
     navButtons.forEach((btn, idx) => {
       if (idx === currentTopicIndex) {
@@ -222,7 +321,7 @@ const firebaseConfig = {
   }
   
   // -------------------------
-  // Skulpt Code Runner for the Challenge
+  // Skulpt Code Runner for Challenges
   // -------------------------
   function builtinRead(x) {
     if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
@@ -249,7 +348,7 @@ const firebaseConfig = {
             challengeFeedback.innerText = "Great job! Your output is correct.";
             nextTopicBtn.disabled = false;
             launchConfetti();
-            // Update user's progress in Firestore
+            // Update progress in Firestore
             const user = auth.currentUser;
             if (user && currentTopicIndex < topics.length) {
               db.collection("users").doc(user.uid).update({ stage: currentTopicIndex });
@@ -263,7 +362,9 @@ const firebaseConfig = {
     });
   });
   
-  // Confetti celebration function
+  // -------------------------
+  // Confetti Celebration Function
+  // -------------------------
   function launchConfetti() {
     confetti({
       particleCount: 100,
@@ -273,12 +374,11 @@ const firebaseConfig = {
   }
   
   // -------------------------
-  // Navigation: Next & Previous Topic Buttons
+  // Navigation Buttons for Topics
   // -------------------------
   nextTopicBtn.addEventListener("click", () => {
     if (currentTopicIndex < topics.length - 1) {
       loadTopic(currentTopicIndex + 1);
-      // Save progress in Firestore
       const user = auth.currentUser;
       if (user) {
         db.collection("users").doc(user.uid).update({ stage: currentTopicIndex });
@@ -297,15 +397,9 @@ const firebaseConfig = {
     }
   });
   
-  // Append Previous button to the topic navigation section if not already added
-  if (!document.getElementById("prev-topic-btn")) {
-    const navSection = document.getElementById("topic-navigation");
-    navSection.appendChild(prevTopicBtn);
-    navSection.appendChild(nextTopicBtn);
-  }
-  
-  // If no explicit container exists, append navigation buttons after the challenge section
-  if (!document.getElementById("topic-navigation")) {
+  // Append navigation buttons to the topic-navigation section (if not already present)
+  const topicNavContainer = document.getElementById("topic-navigation");
+  if (!topicNavContainer) {
     const navContainer = document.createElement("div");
     navContainer.id = "topic-navigation";
     navContainer.appendChild(prevTopicBtn);
