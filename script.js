@@ -1,12 +1,12 @@
 // Firebase Initialization
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID",
-    measurementId: "YOUR_MEASUREMENT_ID"
+    apiKey: "AIzaSyDYevS22SYVg52c2xfL_1E-j_djdzhxFPk",
+    authDomain: "kikivy-game.firebaseapp.com",
+    projectId: "kikivy-game",
+    storageBucket: "kikivy-game.appspot.com",
+    messagingSenderId: "701248167909",
+    appId: "1:701248167909:web:6d77c68e86f60760fc590c",
+    measurementId: "G-Z53L2JHJGJ"
   };
   
   firebase.initializeApp(firebaseConfig);
