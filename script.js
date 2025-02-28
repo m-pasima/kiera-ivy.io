@@ -13,8 +13,8 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-// Topics Array (All Python Concepts)
-const topics = [
+// Topics Array (Python Concepts)
+const pythonTopics = [
   {
     title: "Hello, Python!",
     explanation:
@@ -33,159 +33,70 @@ const topics = [
       "Expected Output:\nI am learning Python!\n\n" +
       "Do not add extra print statements or spaces. Then click 'Run Code'."
   },
+  // Add more Python topics here...
+];
+
+// Math Topics Array
+const mathTopics = [
   {
-    title: "Variables: Your Data Containers",
+    title: "Addition",
     explanation:
-      "📦 **Variables are like boxes** where you can store things! 🎁\n\n" +
-      "1. **What are variables?**\n" +
-      "   - Variables are like labeled boxes. You can put something inside and give it a name.\n" +
-      "   - For example, `name = 'Alice'` stores the name 'Alice' in a box called `name`.\n\n" +
-      "2. **Data Types:**\n" +
-      "   - **Strings**: Text like 'Hello' or 'Python'. Use quotes (`' '` or `\" \"`).\n" +
-      "   - **Integers**: Whole numbers like 5 or 42.\n" +
-      "   - **Floats**: Decimal numbers like 3.14 or 9.99.\n" +
-      "   - **Booleans**: True or False (like a light switch 🎚️).\n\n" +
-      "Now, create a variable to store your favorite number and print it!",
-    exampleCode: "# Example Code\nnumber = 42\nprint(number)",
-    challengeInstruction:
-      "Write a Python program that assigns your favorite number to a variable and prints it."
+      "➕ **Addition is like putting things together!** 🧩\n\n" +
+      "1. **What is addition?**\n" +
+      "   - Addition is combining two or more numbers to get a total.\n" +
+      "   - For example, `5 + 3 = 8`.\n\n" +
+      "2. **Let's practice!**\n" +
+      "   - Solve the problem below and enter your answer.",
+    problem: "What is 7 + 5?",
+    answer: 12
   },
   {
-    title: "Strings: Playing with Text",
+    title: "Subtraction",
     explanation:
-      "🎨 **Strings are like colorful crayons** for writing text! 🖍️\n\n" +
-      "1. **What are strings?**\n" +
-      "   - Strings are pieces of text. They can be words, sentences, or even single letters.\n" +
-      "   - For example, `greeting = 'Hello'` stores the word 'Hello' in a variable.\n\n" +
-      "2. **Combining Strings:**\n" +
-      "   - You can combine strings using the `+` operator. It's like gluing two pieces of paper together! 🖇️\n" +
-      "   - For example, `'Hello' + ' World'` becomes 'Hello World'.\n\n" +
-      "Now, write a program that combines your first and last name and prints the result!",
-    exampleCode: "# Example Code\nfirst = 'Hello'\nsecond = 'World'\nprint(first + ' ' + second)",
-    challengeInstruction:
-      "Write a Python program that combines two strings (for example, your first and last name) and prints the result."
+      "➖ **Subtraction is like taking things away!** 🎈\n\n" +
+      "1. **What is subtraction?**\n" +
+      "   - Subtraction is taking one number away from another.\n" +
+      "   - For example, `10 - 4 = 6`.\n\n" +
+      "2. **Let's practice!**\n" +
+      "   - Solve the problem below and enter your answer.",
+    problem: "What is 15 - 7?",
+    answer: 8
   },
   {
-    title: "Input: Talking to the Computer",
+    title: "Multiplication",
     explanation:
-      "🗣️ **Input is like having a conversation with the computer!** 💬\n\n" +
-      "1. **What is input?**\n" +
-      "   - The `input()` function lets you ask the user for information.\n" +
-      "   - For example, `name = input('What is your name? ')` asks the user for their name.\n\n" +
-      "2. **Using Input:**\n" +
-      "   - You can use the input to personalize your program. For example, `print('Hello, ' + name)` greets the user by name.\n\n" +
-      "Now, write a program that asks the user for their name and prints a greeting!",
-    exampleCode: "# Example Code\nname = input('Enter your name: ')\nprint('Hello, ' + name)",
-    challengeInstruction:
-      "Write a Python program that asks the user for their name and prints a greeting."
+      "✖️ **Multiplication is like adding groups of things!** 🍎🍎🍎\n\n" +
+      "1. **What is multiplication?**\n" +
+      "   - Multiplication is adding the same number multiple times.\n" +
+      "   - For example, `3 × 4 = 12`.\n\n" +
+      "2. **Let's practice!**\n" +
+      "   - Solve the problem below and enter your answer.",
+    problem: "What is 6 × 7?",
+    answer: 42
   },
   {
-    title: "Operators: Math Magic",
+    title: "Division",
     explanation:
-      "🧮 **Operators are like magic spells** for doing math! ✨\n\n" +
-      "1. **What are operators?**\n" +
-      "   - Operators let you add (`+`), subtract (`-`), multiply (`*`), and divide (`/`) numbers.\n" +
-      "   - For example, `5 + 3` gives you 8.\n\n" +
-      "2. **Comparison Operators:**\n" +
-      "   - These let you compare things. For example, `10 > 5` checks if 10 is greater than 5 (it is!).\n\n" +
-      "Now, write a program that adds two numbers and prints the result!",
-    exampleCode: "# Example Code\nresult = 5 + 3\nprint(result)",
-    challengeInstruction:
-      "Write a Python program that adds two numbers and prints the result."
-  },
-  {
-    title: "Conditionals: Making Decisions",
-    explanation:
-      "🤔 **Conditionals are like asking questions** and making decisions! ❓\n\n" +
-      "1. **What are conditionals?**\n" +
-      "   - Conditionals let your program make decisions using `if`, `elif`, and `else`.\n" +
-      "   - For example, `if 10 > 5: print('Yes')` will print 'Yes' because 10 is greater than 5.\n\n" +
-      "2. **How it works:**\n" +
-      "   - The program checks if a condition is `True`. If it is, it runs the code inside the `if` block.\n\n" +
-      "Now, write a program that checks if a number is greater than 10 and prints a message!",
-    exampleCode: "# Example Code\nif 10 > 5:\n    print('Yes')",
-    challengeInstruction:
-      "Write a Python program that checks if a number is greater than 10 and prints a message."
-  },
-  {
-    title: "Loops: Repeating Actions",
-    explanation:
-      "🔁 **Loops are like a merry-go-round** that keeps going around! 🎠\n\n" +
-      "1. **What are loops?**\n" +
-      "   - Loops let you repeat actions without writing the same code over and over.\n" +
-      "   - For example, `for i in range(3): print(i)` will print 0, 1, and 2.\n\n" +
-      "2. **Types of Loops:**\n" +
-      "   - **For loops**: Repeat a set number of times.\n" +
-      "   - **While loops**: Repeat as long as a condition is true.\n\n" +
-      "Now, write a program that prints numbers 1 through 5 using a loop!",
-    exampleCode: "# Example Code\nfor i in range(3):\n    print(i)",
-    challengeInstruction:
-      "Write a Python program that prints numbers 1 through 5 using a loop."
-  },
-  {
-    title: "Functions: Reusable Code Blocks",
-    explanation:
-      "🧩 **Functions are like building blocks** for your code! 🏗️\n\n" +
-      "1. **What are functions?**\n" +
-      "   - Functions are reusable blocks of code that perform a specific task.\n" +
-      "   - For example, `def greet(): print('Hello')` creates a function called `greet`.\n\n" +
-      "2. **Using Functions:**\n" +
-      "   - You can call a function by typing its name followed by `()`. For example, `greet()` will print 'Hello'.\n\n" +
-      "Now, write a function that prints a personalized greeting and call it!",
-    exampleCode: "# Example Code\ndef greet():\n    print('Hello')\n\ngreet()",
-    challengeInstruction:
-      "Write a Python function that prints a personalized greeting and call it."
-  },
-  {
-    title: "Lists: Storing Multiple Items",
-    explanation:
-      "📚 **Lists are like backpacks** that can hold many things! 🎒\n\n" +
-      "1. **What are lists?**\n" +
-      "   - Lists let you store multiple items in a single variable.\n" +
-      "   - For example, `fruits = ['apple', 'banana', 'cherry']` stores three fruits.\n\n" +
-      "2. **Using Lists:**\n" +
-      "   - You can access items in a list using their index. For example, `fruits[0]` gives you 'apple'.\n\n" +
-      "Now, write a program that stores your favorite fruits in a list and prints them!",
-    exampleCode: "# Example Code\nfruits = ['apple', 'banana', 'cherry']\nprint(fruits)",
-    challengeInstruction:
-      "Write a Python program that stores your favorite fruits in a list and prints them."
-  },
-  {
-    title: "Dictionaries: Key-Value Pairs",
-    explanation:
-      "🗝️ **Dictionaries are like treasure chests** where each key opens a specific value! 🏴‍☠️\n\n" +
-      "1. **What are dictionaries?**\n" +
-      "   - Dictionaries store data in key-value pairs. For example, `person = {'name': 'Alice', 'age': 10}`.\n\n" +
-      "2. **Using Dictionaries:**\n" +
-      "   - You can access values using their keys. For example, `person['name']` gives you 'Alice'.\n\n" +
-      "Now, write a program that stores your name and age in a dictionary and prints them!",
-    exampleCode: "# Example Code\nperson = {'name': 'Alice', 'age': 10}\nprint(person['name'])",
-    challengeInstruction:
-      "Write a Python program that stores your name and age in a dictionary and prints them."
-  },
-  {
-    title: "Real-World Project: Tip Calculator",
-    explanation:
-      "💰 **Let's build a tip calculator!** 🧮\n\n" +
-      "1. **What does it do?**\n" +
-      "   - The program calculates a tip based on a bill amount and tip percentage.\n" +
-      "   - For example, for a $50 bill with a 20% tip, the tip is $10, and the total is $60.\n\n" +
-      "2. **How it works:**\n" +
-      "   - Use variables to store the bill amount and tip percentage.\n" +
-      "   - Calculate the tip and total bill using arithmetic operators.\n\n" +
-      "Now, write a program that calculates the tip and total bill!",
-    exampleCode:
-      "# Example Code\nbill = 50\ntip_percentage = 20\ntip = bill * (tip_percentage / 100)\ntotal = bill + tip\nprint('Tip:', tip)\nprint('Total:', total)",
-    challengeInstruction:
-      "Write a Python program that calculates the tip and total bill for a $50 bill with a 20% tip."
+      "➗ **Division is like sharing things equally!** 🍕\n\n" +
+      "1. **What is division?**\n" +
+      "   - Division is splitting a number into equal parts.\n" +
+      "   - For example, `12 ÷ 3 = 4`.\n\n" +
+      "2. **Let's practice!**\n" +
+      "   - Solve the problem below and enter your answer.",
+    problem: "What is 20 ÷ 5?",
+    answer: 4
   }
 ];
 
 // Global Variables & DOM Elements
 let currentTopicIndex = 0;
+let currentMathTopicIndex = 0;
 const authSection = document.getElementById("auth-section");
 const mainContent = document.getElementById("main-content");
+const pythonSection = document.getElementById("python-section");
+const mathSection = document.getElementById("math-section");
 const topicsNav = document.getElementById("topics-nav");
+const mathTopicsNav = document.getElementById("math-topics-nav");
 const topicTitle = document.getElementById("topic-title");
 const progressCurrent = document.getElementById("progress-current");
 const progressTotal = document.getElementById("progress-total");
@@ -200,9 +111,14 @@ const codeOutput = document.getElementById("code-output");
 const challengeFeedback = document.getElementById("challenge-feedback");
 const nextTopicBtn = document.getElementById("next-topic-btn");
 const prevTopicBtn = document.getElementById("prev-topic-btn");
+const mathTopicExplanation = document.getElementById("math-topic-explanation");
+const mathProblem = document.getElementById("math-problem");
+const mathAnswer = document.getElementById("math-answer");
+const submitMathAnswer = document.getElementById("submit-math-answer");
+const mathFeedback = document.getElementById("math-feedback");
 
 // Set total topics count in progress indicator
-progressTotal.innerText = topics.length;
+progressTotal.innerText = pythonTopics.length;
 
 // Authentication Logic
 let authMode = "login";
@@ -267,7 +183,7 @@ auth.onAuthStateChanged(async (user) => {
       name = data.name || "";
     }
     document.getElementById("user-name").innerText = name;
-    currentTopicIndex = stage < topics.length ? stage : topics.length - 1;
+    currentTopicIndex = stage < pythonTopics.length ? stage : pythonTopics.length - 1;
     populateTopicsNav();
     loadTopic(currentTopicIndex);
   } else {
@@ -277,10 +193,10 @@ auth.onAuthStateChanged(async (user) => {
   }
 });
 
-// Populate Topics Navigation
+// Populate Python Topics Navigation
 function populateTopicsNav() {
   topicsNav.innerHTML = "";
-  topics.forEach((topic, index) => {
+  pythonTopics.forEach((topic, index) => {
     const btn = document.createElement("button");
     btn.innerText = topic.title;
     btn.classList.add("topic-btn");
@@ -290,10 +206,23 @@ function populateTopicsNav() {
   });
 }
 
-// Load Topic by Index
+// Populate Math Topics Navigation
+function populateMathTopicsNav() {
+  mathTopicsNav.innerHTML = "";
+  mathTopics.forEach((topic, index) => {
+    const btn = document.createElement("button");
+    btn.innerText = topic.title;
+    btn.classList.add("topic-btn");
+    if (index === currentMathTopicIndex) btn.classList.add("active");
+    btn.addEventListener("click", () => loadMathTopic(index));
+    mathTopicsNav.appendChild(btn);
+  });
+}
+
+// Load Python Topic by Index
 function loadTopic(index) {
   currentTopicIndex = index;
-  const topic = topics[index];
+  const topic = pythonTopics[index];
   topicTitle.innerText = topic.title;
   topicExplanation.innerText = topic.explanation;
   exampleCode.innerText = topic.exampleCode;
@@ -305,6 +234,16 @@ function loadTopic(index) {
   nextTopicBtn.disabled = true; // Disable Next button by default
   updateNavigationButtons();
   updateProgressDisplay();
+}
+
+// Load Math Topic by Index
+function loadMathTopic(index) {
+  currentMathTopicIndex = index;
+  const topic = mathTopics[index];
+  mathTopicExplanation.innerText = topic.explanation;
+  mathProblem.innerText = topic.problem;
+  mathAnswer.value = "";
+  mathFeedback.innerText = "";
 }
 
 // Update Navigation Buttons
@@ -330,7 +269,7 @@ function builtinRead(x) {
 
 // Run Example Code
 runExampleBtn.addEventListener("click", () => {
-  const exampleCodeText = topics[currentTopicIndex].exampleCode;
+  const exampleCodeText = pythonTopics[currentTopicIndex].exampleCode;
   exampleOutput.innerText = "";
   Sk.configure({
     output: (text) => { exampleOutput.innerText += text; },
@@ -368,7 +307,7 @@ runCodeBtn.addEventListener("click", () => {
       nextTopicBtn.disabled = false; // Enable Next button only after successful code execution
       launchConfetti();
       const user = auth.currentUser;
-      if (user && currentTopicIndex < topics.length) {
+      if (user && currentTopicIndex < pythonTopics.length) {
         db.collection("users").doc(user.uid).update({ stage: currentTopicIndex });
       }
     })
@@ -376,6 +315,19 @@ runCodeBtn.addEventListener("click", () => {
       codeOutput.innerText = "Error: " + err.toString();
       challengeFeedback.innerText = "There's an error in your code. Check your syntax.";
     });
+});
+
+// Submit Math Answer
+submitMathAnswer.addEventListener("click", () => {
+  const userAnswer = parseInt(mathAnswer.value.trim());
+  const correctAnswer = mathTopics[currentMathTopicIndex].answer;
+
+  if (userAnswer === correctAnswer) {
+    mathFeedback.innerText = "Great job! Your answer is correct.";
+    launchConfetti();
+  } else {
+    mathFeedback.innerText = "Oops! Try again.";
+  }
 });
 
 // Confetti Celebration
@@ -389,7 +341,7 @@ function launchConfetti() {
 
 // Topic Navigation Buttons
 nextTopicBtn.addEventListener("click", () => {
-  if (currentTopicIndex < topics.length - 1) {
+  if (currentTopicIndex < pythonTopics.length - 1) {
     loadTopic(currentTopicIndex + 1);
     const user = auth.currentUser;
     if (user) {
@@ -407,4 +359,17 @@ prevTopicBtn.addEventListener("click", () => {
   if (currentTopicIndex > 0) {
     loadTopic(currentTopicIndex - 1);
   }
+});
+
+// Switch Between Python and Math Sections
+document.getElementById("python-section-btn").addEventListener("click", () => {
+  pythonSection.style.display = "block";
+  mathSection.style.display = "none";
+});
+
+document.getElementById("math-section-btn").addEventListener("click", () => {
+  pythonSection.style.display = "none";
+  mathSection.style.display = "block";
+  populateMathTopicsNav();
+  loadMathTopic(currentMathTopicIndex);
 });
