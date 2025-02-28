@@ -5,21 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Learn Python Pro</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- Firebase SDKs (compat versions for simplicity) -->
+  <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-
-  <!-- Skulpt for running Python code -->
+  <!-- Skulpt for Python -->
   <script src="https://cdn.jsdelivr.net/npm/skulpt@latest/dist/skulpt.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/skulpt@latest/dist/skulpt-stdlib.js"></script>
-
-  <!-- Canvas-Confetti for celebration effects -->
+  <!-- Confetti for celebrations -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-  <!-- Header with site title and user info -->
   <header>
     <h1>Learn Python Pro</h1>
     <div id="user-info">
@@ -28,7 +24,6 @@
     </div>
   </header>
 
-  <!-- Authentication Section (visible if not logged in) -->
   <section id="auth-section">
     <h2>Welcome! Please Log In or Sign Up</h2>
     <div id="auth-form">
@@ -43,25 +38,15 @@
     </div>
   </section>
 
-  <!-- Main Content Section (visible after login) -->
   <main id="main-content" style="display:none;">
-    <!-- Navigation Bar for Topics -->
-    <nav id="topics-nav">
-      <!-- Topic buttons generated dynamically -->
-    </nav>
-
-    <!-- Topic Header: displays the topic title and progress indicator -->
+    <nav id="topics-nav"></nav>
     <section id="topic-header">
       <h2 id="topic-title">Topic Title</h2>
       <div id="progress-indicator">Topic <span id="progress-current">1</span> of <span id="progress-total">18</span></div>
     </section>
-
-    <!-- Topic Explanation: detailed theory and examples -->
     <section id="topic-content">
       <p id="topic-explanation">Detailed explanation and examples for the topic will appear here.</p>
     </section>
-
-    <!-- Interactive Coding Challenge Section -->
     <section id="challenge-section">
       <h3>Interactive Challenge</h3>
       <p id="challenge-instructions">Challenge instructions will appear here.</p>
@@ -70,14 +55,12 @@
       <pre id="code-output"></pre>
       <p id="challenge-feedback"></p>
     </section>
-
-    <!-- Navigation Buttons for Topics -->
     <section id="topic-navigation">
       <button id="prev-topic-btn" disabled>Previous Topic</button>
       <button id="next-topic-btn" disabled>Next Topic</button>
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>

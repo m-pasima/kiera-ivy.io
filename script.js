@@ -1,135 +1,33 @@
-// -------------------------
 // Firebase Initialization
-// -------------------------
 const firebaseConfig = {
-    apiKey: "AIzaSyDYevS22SYVg52c2xfL_1E-j_djdzhxFPk",
-    authDomain: "kikivy-game.firebaseapp.com",
-    projectId: "kikivy-game",
-    storageBucket: "kikivy-game.firebasestorage.app",
-    messagingSenderId: "701248167909",
-    appId: "1:701248167909:web:6d77c68e86f60760fc590c",
-    measurementId: "G-Z53L2JHJGJ"
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID",
+    measurementId: "YOUR_MEASUREMENT_ID"
   };
   
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
   const db = firebase.firestore();
   
-  // -------------------------
   // Topics Array (Example with 8 topics)
-  // -------------------------
   const topics = [
     {
       title: "Basics of Python",
-      explanation:
-        "Welcome to Python!\n\n" +
-        "1. **The print() Function:**\n" +
-        "   - The print() function outputs text to the screen.\n" +
-        "   - The text must be enclosed in quotes (either single ('') or double (\"\") quotes).\n\n" +
-        "2. **Comments:**\n" +
-        "   - Anything following a '#' is a comment and is ignored by Python. Use comments to explain your code.\n\n" +
-        "3. **Your First Program:**\n" +
-        "   - A classic first program prints a message. The example below prints 'Hello, World!'.\n\n" +
-        "Now, modify the code so that it prints 'I am learning Python!' exactly.",
+      explanation: "Welcome to Python! Learn the basics of the print() function and comments.",
       starterCode: "# Write your code below\nprint('Hello, World!')",
       expectedOutput: "I am learning Python!",
-      challengeInstruction:
-        "Modify the starter code so that it prints 'I am learning Python!' exactly as shown below.\n" +
-        "Expected Output:\nI am learning Python!\n\n" +
-        "Do not add extra print statements or spaces. Then click 'Run Code'."
+      challengeInstruction: "Modify the starter code so that it prints 'I am learning Python!'."
     },
-    {
-      title: "Variables and Data Types",
-      explanation:
-        "Variables store data. Python supports data types such as strings (text), integers (whole numbers), floats (decimal numbers), and booleans (True/False).\n\n" +
-        "In this lesson, you'll learn how to assign a value to a variable and print it.",
-      starterCode: "# Assign a number to a variable\nnumber = 42\nprint(number)",
-      expectedOutput: "42",
-      challengeInstruction:
-        "Change the value assigned to the variable (for example, use your favorite number) and print it."
-    },
-    {
-      title: "Working with Strings",
-      explanation:
-        "Strings represent text in Python. You can combine strings using the '+' operator and use methods like upper() or lower() to change their case.\n\n" +
-        "In this lesson, you will combine two strings.",
-      starterCode: "# Combine two strings\nfirst = 'Hello'\nsecond = 'World'\nprint(first + ' ' + second)",
-      expectedOutput: "Hello World",
-      challengeInstruction:
-        "Modify the code to change the message (for example, use your name) and print the result."
-    },
-    {
-      title: "Input and Output",
-      explanation:
-        "Input and output allow your program to interact with users. The print() function displays text, and input() gets data from the user.\n\n" +
-        "In this lesson, we simulate input by predefining a variable.",
-      starterCode: "# Simulate user input\nname = 'Alice'\nprint('Hello, ' + name)",
-      expectedOutput: "Hello, Alice",
-      challengeInstruction:
-        "Change the variable to your own name and print a greeting."
-    },
-    {
-      title: "Operators and Conditionals",
-      explanation:
-        "Operators allow you to perform calculations and comparisons. Conditionals (if, elif, else) let your program make decisions based on conditions.\n\n" +
-        "In this lesson, you'll use an if statement to check a condition.",
-      starterCode: "# Use an if statement\nif 10 > 5:\n    print('Yes')",
-      expectedOutput: "Yes",
-      challengeInstruction:
-        "Write an if statement that prints 'Yes' when a number of your choice is greater than another number. Modify the starter code accordingly."
-    },
-    {
-      title: "Loops",
-      explanation:
-        "Loops allow you to repeat actions without writing code over and over. Learn how to use for loops to iterate over a sequence and while loops to repeat code as long as a condition is true.\n\n" +
-        "In this lesson, you'll use a for loop to print a sequence of numbers.",
-      starterCode: "# For loop example\nfor i in range(1, 4):\n    print(i)",
-      expectedOutput: "1\n2\n3",
-      challengeInstruction:
-        "Modify the loop so that it prints numbers 1 through 5 on separate lines."
-    },
-    {
-      title: "Functions",
-      explanation:
-        "Functions are reusable blocks of code that perform a specific task. Learn how to define functions, pass parameters, and return values.\n\n" +
-        "In this lesson, you'll define a function that prints a greeting.",
-      starterCode: "# Define a function that greets\n\ndef greet():\n    print('Hello')\n\ngreet()",
-      expectedOutput: "Hello",
-      challengeInstruction:
-        "Define your own function that prints a personalized greeting and call that function."
-    },
-    {
-      title: "Real-World Application: Tip Calculator",
-      explanation:
-        "Now, apply what you've learned by creating a simple tip calculator. The program will calculate a tip based on a bill amount and tip percentage, then print the tip and the total bill.\n\n" +
-        "This project uses variables, arithmetic, and output to solve a real-world problem.",
-      starterCode:
-        "# Tip Calculator Template\nbill = 50  # Example bill amount\ntip_percentage = 20  # Tip percentage\n\n" +
-        "# Calculate tip (write your code here)\n\n" +
-        "# Calculate total (write your code here)\n\n" +
-        "# Expected Output for a $50 bill with 20% tip:\n# Tip: 10.0\n# Total: 60.0",
-      expectedOutput: "Tip: 10.0\nTotal: 60.0",
-      challengeInstruction:
-        "Complete the code to calculate the tip and total bill. For a $50 bill with a 20% tip, your program should output exactly:\nTip: 10.0\nTotal: 60.0"
-    }
+    // Add more topics here...
   ];
   
-  // -------------------------
   // Global Variables & DOM Elements
-  // -------------------------
   let currentTopicIndex = 0;
-  
   const authSection = document.getElementById("auth-section");
-  const authNameInput = document.getElementById("auth-name");
-  const authEmailInput = document.getElementById("auth-email");
-  const authPasswordInput = document.getElementById("auth-password");
-  const authBtn = document.getElementById("auth-btn");
-  const toggleAuthModeLink = document.getElementById("toggle-auth-mode");
-  const toggleAuthText = document.getElementById("toggle-auth-text");
-  const authMessage = document.getElementById("auth-message");
-  const logoutBtn = document.getElementById("logout-btn");
-  const userNameDisplay = document.getElementById("user-name");
-  
   const mainContent = document.getElementById("main-content");
   const topicsNav = document.getElementById("topics-nav");
   const topicTitle = document.getElementById("topic-title");
@@ -147,56 +45,47 @@ const firebaseConfig = {
   // Set total topics count in progress indicator
   progressTotal.innerText = topics.length;
   
-  // -------------------------
-  // Authentication: Toggle between Log In and Sign Up
-  // -------------------------
+  // Authentication Logic
   let authMode = "login";
-  toggleAuthModeLink.addEventListener("click", (e) => {
+  document.getElementById("toggle-auth-mode").addEventListener("click", (e) => {
     e.preventDefault();
-    if (authMode === "login") {
-      authMode = "signup";
-      authNameInput.style.display = "block";
-      authBtn.innerText = "Sign Up";
-      toggleAuthText.innerHTML = 'Already have an account? <a href="#" id="toggle-auth-mode">Log In</a>';
-    } else {
-      authMode = "login";
-      authNameInput.style.display = "none";
-      authBtn.innerText = "Log In";
-      toggleAuthText.innerHTML = 'Don\'t have an account? <a href="#" id="toggle-auth-mode">Sign Up</a>';
-    }
-    authMessage.innerText = "";
+    authMode = authMode === "login" ? "signup" : "login";
+    document.getElementById("auth-name").style.display = authMode === "signup" ? "block" : "none";
+    document.getElementById("auth-btn").innerText = authMode === "signup" ? "Sign Up" : "Log In";
+    document.getElementById("toggle-auth-text").innerHTML = authMode === "signup"
+      ? 'Already have an account? <a href="#" id="toggle-auth-mode">Log In</a>'
+      : 'Don\'t have an account? <a href="#" id="toggle-auth-mode">Sign Up</a>';
+    document.getElementById("auth-message").innerText = "";
   });
   
-  // Handle authentication button click
-  authBtn.addEventListener("click", async () => {
-    const email = authEmailInput.value;
-    const password = authPasswordInput.value;
+  document.getElementById("auth-btn").addEventListener("click", async () => {
+    const email = document.getElementById("auth-email").value;
+    const password = document.getElementById("auth-password").value;
     if (authMode === "signup") {
-      const name = authNameInput.value;
+      const name = document.getElementById("auth-name").value;
       if (!name) {
-        authMessage.innerText = "Please enter your name.";
+        document.getElementById("auth-message").innerText = "Please enter your name.";
         return;
       }
       try {
         const userCredential = await auth.createUserWithEmailAndPassword(email, password);
-        authMessage.innerText = "Sign up successful! You are now logged in.";
-        // Save user's name and initial progress (topic 0) to Firestore
         await db.collection("users").doc(userCredential.user.uid).set({ stage: 0, name: name });
+        document.getElementById("auth-message").innerText = "Sign up successful!";
       } catch (err) {
-        authMessage.innerText = "Error: " + err.message;
+        document.getElementById("auth-message").innerText = "Error: " + err.message;
       }
     } else {
       try {
         await auth.signInWithEmailAndPassword(email, password);
-        authMessage.innerText = "Log in successful!";
+        document.getElementById("auth-message").innerText = "Log in successful!";
       } catch (err) {
-        authMessage.innerText = "Error: " + err.message;
+        document.getElementById("auth-message").innerText = "Error: " + err.message;
       }
     }
   });
   
-  // Handle logout
-  logoutBtn.addEventListener("click", async () => {
+  // Logout Logic
+  document.getElementById("logout-btn").addEventListener("click", async () => {
     try {
       await auth.signOut();
     } catch (err) {
@@ -204,13 +93,12 @@ const firebaseConfig = {
     }
   });
   
-  // Listen for authentication state changes
+  // Authentication State Listener
   auth.onAuthStateChanged(async (user) => {
     if (user) {
-      // Hide auth section, show main content
       authSection.style.display = "none";
       mainContent.style.display = "block";
-      logoutBtn.style.display = "inline-block";
+      document.getElementById("logout-btn").style.display = "inline-block";
       const userDoc = await db.collection("users").doc(user.uid).get();
       let stage = 0;
       let name = "";
@@ -219,21 +107,18 @@ const firebaseConfig = {
         stage = data.stage || 0;
         name = data.name || "";
       }
-      userNameDisplay.innerText = name;
+      document.getElementById("user-name").innerText = name;
       currentTopicIndex = stage < topics.length ? stage : topics.length - 1;
       populateTopicsNav();
       loadTopic(currentTopicIndex);
     } else {
-      // Show auth section, hide main content
       authSection.style.display = "block";
       mainContent.style.display = "none";
-      logoutBtn.style.display = "none";
+      document.getElementById("logout-btn").style.display = "none";
     }
   });
   
-  // -------------------------
-  // Populate Topics Navigation Buttons
-  // -------------------------
+  // Populate Topics Navigation
   function populateTopicsNav() {
     topicsNav.innerHTML = "";
     topics.forEach((topic, index) => {
@@ -246,9 +131,7 @@ const firebaseConfig = {
     });
   }
   
-  // -------------------------
-  // Load a Topic by Index
-  // -------------------------
+  // Load Topic by Index
   function loadTopic(index) {
     currentTopicIndex = index;
     const topic = topics[index];
@@ -262,13 +145,13 @@ const firebaseConfig = {
     updateProgressDisplay();
   }
   
-  // Update Previous/Next buttons
+  // Update Navigation Buttons
   function updateNavigationButtons() {
     prevTopicBtn.disabled = currentTopicIndex === 0;
-    nextTopicBtn.disabled = true; // Next button enabled only when challenge passes
+    nextTopicBtn.disabled = true;
   }
   
-  // Update progress indicator and active nav button
+  // Update Progress Display
   function updateProgressDisplay() {
     progressCurrent.innerText = currentTopicIndex + 1;
     const navButtons = document.querySelectorAll("#topics-nav button");
@@ -277,17 +160,14 @@ const firebaseConfig = {
     });
   }
   
-  // -------------------------
-  // Skulpt Code Runner for Challenges
-  // -------------------------
+  // Skulpt Code Runner
   function builtinRead(x) {
     if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
-        throw "File not found: '" + x + "'";
+      throw "File not found: '" + x + "'";
     return Sk.builtinFiles["files"][x];
   }
   
   runCodeBtn.addEventListener("click", () => {
-    // Check if the learner has modified the starter code
     const userCode = codeEditor.value.trim();
     const starterCode = topics[currentTopicIndex].starterCode.trim();
     if (userCode === starterCode) {
@@ -297,24 +177,23 @@ const firebaseConfig = {
     codeOutput.innerText = "";
     challengeFeedback.innerText = "";
     Sk.configure({
-        output: (text) => { codeOutput.innerText += text; },
-        read: builtinRead
+      output: (text) => { codeOutput.innerText += text; },
+      read: builtinRead
     });
     Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, userCode, true))
       .then(() => {
         const userOutput = codeOutput.innerText.trim();
         const expected = topics[currentTopicIndex].expectedOutput.trim();
         if (userOutput === expected || expected === "") {
-            challengeFeedback.innerText = "Great job! Your output is correct.";
-            nextTopicBtn.disabled = false;
-            launchConfetti();
-            // Update user's progress in Firestore
-            const user = auth.currentUser;
-            if (user && currentTopicIndex < topics.length) {
-              db.collection("users").doc(user.uid).update({ stage: currentTopicIndex });
-            }
+          challengeFeedback.innerText = "Great job! Your output is correct.";
+          nextTopicBtn.disabled = false;
+          launchConfetti();
+          const user = auth.currentUser;
+          if (user && currentTopicIndex < topics.length) {
+            db.collection("users").doc(user.uid).update({ stage: currentTopicIndex });
+          }
         } else {
-            challengeFeedback.innerText = "The output didn't match the expected result. Please try again!";
+          challengeFeedback.innerText = "The output didn't match the expected result. Please try again!";
         }
       })
       .catch((err) => {
@@ -323,9 +202,7 @@ const firebaseConfig = {
       });
   });
   
-  // -------------------------
-  // Confetti Celebration Function
-  // -------------------------
+  // Confetti Celebration
   function launchConfetti() {
     confetti({
       particleCount: 100,
@@ -334,9 +211,7 @@ const firebaseConfig = {
     });
   }
   
-  // -------------------------
-  // Navigation Buttons for Topics
-  // -------------------------
+  // Topic Navigation Buttons
   nextTopicBtn.addEventListener("click", () => {
     if (currentTopicIndex < topics.length - 1) {
       loadTopic(currentTopicIndex + 1);
@@ -357,14 +232,3 @@ const firebaseConfig = {
       loadTopic(currentTopicIndex - 1);
     }
   });
-  
-  // Append navigation buttons to the topic-navigation section if not already present
-  const topicNavContainer = document.getElementById("topic-navigation");
-  if (!topicNavContainer) {
-    const navContainer = document.createElement("div");
-    navContainer.id = "topic-navigation";
-    navContainer.appendChild(prevTopicBtn);
-    navContainer.appendChild(nextTopicBtn);
-    document.getElementById("main-content").appendChild(navContainer);
-  }
-  
